@@ -5,15 +5,82 @@
 </head>
 <body>
 	<style type="text/css">
-
+		#ocean {
+			background-image: url("space.jpg");
+			width: 900px;
+			height: 700px;
+		}
+		.player {
+			position: absolute;
+			background-image: url("heroShip.png");
+			width: 70px;
+			height: 75px;
+		}
+		.enemy {
+			position: absolute;
+			background-image: url("enemy1Ship.png");
+			width: 70px;
+			height: 75px;
+		}
 	</style>
 
+	<div id="ocean">
+		<div id="players"></div>
+		<div id="enemies"></div>
+	</div>
 
 
 
 
 	<script type="text/javascript">
-	
+
+		var player = {
+			left: 450,
+			top: 620,
+		}
+
+		var enemies = [
+			{left: 350, top: 200},
+			{left: 450, top: 250},
+			{left: 250, top: 200},
+			{left: 550, top: 250},
+			{left: 150, top: 300},
+			{left: 600, top: 350},
+		]
+
+		function drawPlayer() {
+			var content = "<div class='player' style='left:" + player.left + "px; top:" + player.top + "px'></div>";
+			document.getElementById('players').innerHTML = content;
+		}
+		drawPlayer();
+
+		function drawEnemies() {
+			var content = "";
+			for (var i = 0; i < enemies.length; i++) {
+				content += "<div class='enemy' style='left:" + enemies[i].left + "px; top:" + enemies[i].top + "px'></div>";	
+			}
+			document.getElementById('enemies').innerHTML = content;
+		}
+		drawEnemies();
+
+
+		document.onkeydown = function(e) {
+			if (e.keyCode == 37 && player.left != 10) {  // Left
+				player.left -= 10;
+			}
+			else if (e.keyCode == 39 && player.left != 840) {  // Right    
+					player.left += 10;
+			}
+			else if (e.keyCode == 40 && player.top != 630) { // Down
+				player.top += 10;
+			}
+			else if (e.keyCode == 38 && player.top != 430) {  // Up
+				player.top -= 10;
+			}
+			console.log("X: " + player.left + " Y: " + player.top);
+			drawPlayer();
+			// drawEnemies();
+		}
 
 	</script>
 </body>
