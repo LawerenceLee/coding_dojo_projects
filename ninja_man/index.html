@@ -1,4 +1,11 @@
 <!doctype html>
+<!-- NOTES:
+* Need to have Ghosts move autonomously, currently they do not.
+* Red pumpkin is programmed to randomly move with each move of NinjaMan,
+which is not only too slow, but not what we want.
+* Best code I've seen that might help solve the problem:
+https://github.com/ChristopherDonnelly/academy-ninjaman/blob/master/NinjaMan-Challenge.html
+-->
 <html>
 <head>
     <title>NinjaMan</title>
@@ -298,9 +305,9 @@
         drawNinjaman()
         drawGhosts()
         drawWorld()
+        findNinja(red)
         // console.log("Sushi pts: " + sushiPoints + " Onigiri pts: " + onigiriPoints);
         // console.log("X: " + ninjaman.x + "  Y: " + ninjaman.y);
     }
-    findNinja(red)
 </script>
 </html>
