@@ -22,16 +22,19 @@
 			width: 70px;
 			height: 75px;
 		}
+		.missile {
+			position: absolute;
+			background-color: rgb(166, 255, 0);
+			width: 2px;
+			height: 10px;
+		}
 	</style>
 
 	<div id="ocean">
 		<div id="players"></div>
 		<div id="enemies"></div>
+		<div id="missiles"></div>
 	</div>
-
-
-
-
 	<script type="text/javascript">
 
 		var player = {
@@ -48,11 +51,12 @@
 			{left: 600, top: 350},
 		]
 
+		var missiles = []
+
 		function drawPlayer() {
 			var content = "<div class='player' style='left:" + player.left + "px; top:" + player.top + "px'></div>";
 			document.getElementById('players').innerHTML = content;
 		}
-		drawPlayer();
 
 		function drawEnemies() {
 			var content = "";
@@ -61,7 +65,27 @@
 			}
 			document.getElementById('enemies').innerHTML = content;
 		}
-		drawEnemies();
+
+		function drawMissiles() {
+			console.log("Missiles: " + missiles.length);
+			content = "";
+			for (var i = 0; i < missiles.length; i++) {
+				content += "<div class='missile' style='left:" + missiles[i].left + "px; top:" + missiles[i].top + "px'></div>";
+			}
+			document.getElementById('missiles').innerHTML = content;
+		}	
+
+		function moveEnemies() {
+			for (var i = 0; i < enemies.length; i++) {
+				enemies[i].top = enemies[i].top + 11;
+			}
+		}
+
+		function moveMissiles() {
+			for (var i = 0; i < missiles.length; i++) {
+				missiles[i].top = missiles[i].top - 12;
+			}
+		}
 
 
 		document.onkeydown = function(e) {
@@ -77,10 +101,25 @@
 			else if (e.keyCode == 38 && player.top != 430) {  // Up
 				player.top -= 10;
 			}
-			console.log("X: " + player.left + " Y: " + player.top);
+			else if (e.keyCode == 32) {  // Fire Missile
+				missiles.push({left: (player.left + 34), top: (player.top - 8)})	
+				drawMissiles();
+			}
+			// console.log("X: " + player.left + " Y: " + player.top);
 			drawPlayer();
-			// drawEnemies();
 		}
+
+		function gameLoop() {
+			drawPlayer();
+
+			moveEnemies();
+			drawEnemies();
+			moveMissiles();
+			drawMissiles();
+
+			setTimeout(gameLoop, 500);
+		}
+		gameLoop();
 
 	</script>
 </body>
