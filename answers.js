@@ -279,11 +279,26 @@ function firstPlusLength(arr) {
     }
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// Values Greater than Second
+// For [1,3,5,7,9,13], print values that are greater than its 2 nd value. 
+// Return how many values this is.
+
+function secondGreater(){
+    var arr = [1,3,5,7,9,13]
+    var count = 0;
+    for (var x=0; x<arr.length; x++) {
+        if (arr[x] > arr[1]) {
+            console.log(arr[x])
+            count += 1
+        }
+    }
+    return count;
+}
 
 ////////////////////////////////////////////////////////////////////////////////
-// Values Greater than Second 
-// For [1,3,5,7,9,13], print values that are greater than its 2nd value. Return 
-// how many values this is.
+// Values Greater than Second, Generalized
+// Write a function that accepts any array, and returns a new array with the array values that are greater than its 2nd value. Print how many values this is. What will you do if the array is only one element long?
 
 function greaterThanSecond(arr) {
     var count = 0;
@@ -299,4 +314,137 @@ greaterThanSecond([1,3,5,7,9,13])
 
 
 ////////////////////////////////////////////////////////////////////////////////
-//
+// This Length, That Value
+// Given two numbers, return array of length num1 with
+// each value num2. Print "Jinx!" if they are same.
+
+function lengthValue(num1, num2) {
+    var arr = [];
+    if (num1 === num2) {
+        console.log("Jinx!");
+    }
+    for (var x=0; x<num1; x++) {
+        arr.push(num2);
+    }
+    return arr;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Fit the First Value
+// Your function should accept an array. If value at [0] is greater than
+// array’s length, print "Too big!";
+// if value at [0] is less than array’s length, print "Too small!"; otherwise 
+// print "Just right!".
+
+function fitFirstValue(arr) {
+    var arrLen = arr.length;
+    var firstVal = arr[0]
+    if (firstVal > arrLen) {
+        console.log("Too big!")
+    }
+    else if (firstVal < arrLen) {
+        console.log("Too small!")
+    }
+    else {
+        console.log("Just right!")
+    }
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Fahrenheit to Celsius
+// Kelvin wants to convert between temperature scales. Create 
+// fahrenheitToCelsius(fDegrees)
+// that accepts a number of degrees in Fahrenheit, and returns the equivalent 
+// temperature as expressed
+// in Celsius degrees. For review, Fahrenheit = (9/5 * Celsius) + 32.
+
+function fahrenheitToCelsius(fDegrees) {
+    return ((fDegrees - 32) * (5/9))
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Celsius to Fahrenheit
+//Create celsiusToFahrenheit(cDegrees) that accepts number of degrees Celsius, 
+// and returns the equivalent temperature expressed in Fahrenheit degrees.
+
+function celsiusToFahrenheit(cDegrees) {
+    return (9/5) * cDegrees + 32
+} 
+
+// (optional) Do Fahrenheit and Celsius values equate at a certain number? 
+// Scientific calculation can be complex, so for this challenge just try a 
+// series of Celsius integer values starting at 200, going downward
+// (descending), checking whether it is equal to the corresponding Fahrenheit 
+// value.
+
+for (var x=200; x>-201; x--) {
+    if (x == fahrenheitToCelsius(x)){
+        console.log(x)
+    }
+}
+
+// Answer: -40
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Biggie Size
+// Given an array, write a function that changes all positive numbers in the 
+// array to “big”. Example: makeItBig([-1,3,5,-5]) returns that same array, 
+// changed to [-1,"big","big",-5].
+
+function makeItBig(arr) {
+    for (var x=0; x<arr.length; x++) {
+        if (arr[x] > 0) {
+            arr[x] = "big";
+        }
+    }
+    return arr
+}
+makeItBig([-1,3,4,-5])
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Print Low, Return High
+// Create a function that takes array of numbers. The function should print 
+// the lowest value in the array, and return the highest value in the array.
+
+function printLowReturnHigh(arr) {
+    var max = arr[0];
+    var min = arr[0];
+    for (var x=1; x<arr.length; x++) {
+        if (arr[x] > max) {
+            max = arr[x];
+        }
+        else if (arr[x] < min) {
+            min = arr[x];
+        }
+    }
+    console.log(min);
+    return max
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Print One, Return Another
+// Build a function that takes array of numbers. The function should print 
+// second-to-last value in the array, and return first odd value in the array.
+
+function printOneReturnAnother(arr) {
+    console.log(arr[arr.length-2])
+    for (var x=0; x<arr.length; x++) {
+        if (arr[x] < 0) {
+            return arr[x] 
+        }
+    }
+}
+printOneReturnAnother([2,3,-6,5,4])
+
+
+////////////////////////////////////////////////////////////////////////////////
+// 
