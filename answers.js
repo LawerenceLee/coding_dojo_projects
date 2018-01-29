@@ -1,3 +1,13 @@
+/*
+Algorithm Challenges
+The Dojo Collection
+Version 1.1.7
+May 8, 2017
+By Martin Puryear
+
+Algorithms completed by: Zach Owens
+*/
+
 // Page 16
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -391,6 +401,9 @@ for (var x=200; x>-201; x--) {
 // Answer: -40
 
 
+// Page 22
+
+
 ////////////////////////////////////////////////////////////////////////////////
 // Biggie Size
 // Given an array, write a function that changes all positive numbers in the 
@@ -447,4 +460,192 @@ printOneReturnAnother([2,3,-6,5,4])
 
 
 ////////////////////////////////////////////////////////////////////////////////
-// 
+// Double Vision
+// Given array, create a function to return a newarray where each value in the 
+// original has been doubled. Calling double([1,2,3]) should return [2,4,6] 
+// without changing original.
+
+function doubleVision(arr) {
+    var newArr = []
+    for (var x=0; x<arr.length; x++) {
+        newArr.push(arr[x] * 2)
+    }
+    return newArr
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Count Positives
+// Given array of numbers, create function to replace last value with number 
+// of positive values. Example, countPositives([-1,1,1,1]) changes array to 
+// [-1,1,1,3] and returns it.
+
+function countPositives(arr) {
+    var count = 0;
+    for (var x=0; x<arr.length; x++) {
+        if (arr[x] > 0) {
+            count++
+        }
+    }
+    arr[arr.length - 1] = count
+    return arr
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Evens and Odds
+// Create a function that accepts an array. Every time that array has three 
+// odd values in a row, print "That’s odd!" Every time the array has three 
+// evens in a row, print "Even more so!"
+
+function evensAndOdds(arr) {
+    var even = 0;
+    var odds = 0;
+    for (var x=0; x<arr.length; x++) {
+        if (arr[x] % 2 == 0) {
+            evens++;
+            odds = 0;
+            if (evens == 3) {
+                console.log("Even more so!");
+                evens = 0;
+            }
+        }
+        else {
+            odds++;
+            evens = 0;
+            if (odds == 3) {
+                console.log("That's odd!")
+                odds = 0;
+            }
+        }
+    }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Increment the Seconds
+// Given arr, add 1 to odd elements ([1], [3], etc.), console.log all values 
+// and return arr.
+
+function incrementTheSec(arr) {
+    for (var x=0; x<arr.length; x++) {
+        if (arr[x] % 2 !== 0) {
+            arr[x] = arr[x] + 1;
+        }
+        console.log(arr[x])
+    }
+    return arr
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Previous Lengths
+// You are passed an array containing strings. Working within that same array, 
+// replace eachstring with a number – the length of the string at previous 
+// array index – and return the array.
+
+function lengths(arr) {
+    for (var x=0; x<arr.length; x++) {
+        arr[x] = x + 1
+    }
+    return arr
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Add Seven to Most
+// Build function that accepts array. Return a new array with all values 
+// except first, adding 7 to each. Do not alter the original array.
+
+function seventoMost(arr) {
+    var newArr = []
+    for (var x=1; x<arr.length; x++) {
+        newArr.push(arr[x] + 7)
+    }
+    return newArr;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Reverse Array
+// Given array, write a function to reverse values, in-place. Example:
+// reverse([3,1,6,4,2]) returns same array, containing [2,4,6,1,3].
+
+function reverseArray(arr) {
+    var back = arr.length - 1;
+    for (var x=0; x<Math.floor(arr.length/2); x++) {
+        var temp = arr[back]
+        arr[back] = arr[x]
+        arr[x] = temp
+        back--
+    }
+    return arr
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Outlook: Negative
+// Given an array, create and return a new one containing all the values of 
+// the provided array,made negative (not simply multiplied by -1). Given 
+// [1,-3,5], return [-1,-3,-5].
+
+function outlookNegative(arr) {
+    var newArr = []
+    for (var x=0; x<arr.length; x++) {
+        if (arr[x] > 0) {
+            newArr.push(arr[x] - (arr[x] * 2))
+        }
+        else {
+            newArr.push(arr[x])
+        }
+    }
+    return newArr
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Always Hungry
+// Create a function that accepts an array, andprints "yummy" each time one of 
+// the values is equal to "food". If no array elements are "food", then print 
+// "I'm hungry" once.
+
+function alwaysHungry(arr) {
+    var isHungry = true;
+    for (var x=0; x<arr.length; x++) {
+        if (arr[x] === "food") {
+            console.log("yummy");
+            isHungry = false;
+        }
+    }
+    if (isHungry == true) {
+        console.log("I'm hungry");
+    }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Swap Toward the Center
+// Given array, swap first and last, third and third-to- last, etc. Input 
+// [true,42,"Ada",2,"pizza"] becomes ["pizza",42,"Ada",2,true]. Change [1,2,3,
+// 4,5,6] to [6,2,4,3,5,1].
+
+function swapTowardTheCenter(arr) {
+    var temp1 = arr[arr.length-1]
+    arr[arr.length-1] = arr[0]
+    arr[0] = temp1
+
+    var temp3 = arr[arr.length-3]
+    arr[arr.length-3] = arr[2]
+    arr[2] = temp3
+    return arr
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Scale the Array
+// Given array arr and number num, multiply each arr value by num, and return // the changed arr.
+
+function scaleTheArray(arr, num) {
+    for (var x=0; x<arr.length; x++) {
+        arr[x] *= num;
+    }
+    return arr
+}
