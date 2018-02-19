@@ -1,0 +1,14 @@
+Command List:
+1. Cmd + <space>, typed Terminal in search box, clicked icon.
+2. cd ~/Desktop
+3. mkdir test && cd test
+4. touch index.html
+5. touch styles.css
+6. touch commands.txt
+7. cp index.html index_2.html
+8. rm -rf styles.css
+9. cd .. && mkdir destination
+10. mv ~/Desktop/text/index_2.html ~/Desktop/destination
+11. ls -al test
+12 ls -al destination
+13 rm -rf destination
