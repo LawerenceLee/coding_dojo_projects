@@ -377,3 +377,9 @@ If you use the for attribute in a label element it has to match the id of an inp
 <label for="field-id" style="line-height:24px;">Your Name</label><br>&nbsp;&nbsp;
 <input type="text" id="field-id">
 ```
+
+## Div & Span
+
+Div Element `<div></div>`: Block level elements that allow you to group content that belongs together into a container.
+
+Span Element `<span></span>`: Inline elements that work like the div element, but are meant for smaller bits of information (e.g. Pieces of text inside a paragraph).
