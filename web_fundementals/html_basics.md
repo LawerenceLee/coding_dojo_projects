@@ -1,5 +1,11 @@
 # HTML Notes
 
+## Validating your HTML
+
+Use the link below to check if your HTML is valid (you can paste your code in):
+
+[Nu Html Checker](https://validator.w3.org/nu/#l26c31)
+
 ## Meta Tags
 
 Meta tags make your web page more meaningful for search engines like Google.
@@ -37,6 +43,7 @@ This line links a JavaScript or jQuery file to our document. JavaScript makes ou
 
 NOTE: You can link to as many stylesheets or JavaScript files as you want within the head tags.
 
+***
 ## Images
 
 There are two ways that we use images on a web page: as `page elements` (such as album art in Pandora, or the photos in your Facebook feed), or as `background images` (this is covered in CSS section).
@@ -45,7 +52,7 @@ It has two required attributes: `src` and `alt`.  The `src` attribute stands for
 
 * `<img src="http://....." alt="" height=100 width=100>`
 
-
+***
 ## Links
 
 The tag used for links is the `<a>` tag, which stands for the anchor tag. Similar to images, links also need to have an attribute that tells the browser where the link is pointing. For links, this is called the href attribute.
@@ -58,6 +65,7 @@ Possible values for the href attribute are:
 
 * `<a href="http://myfakesite.com">LINK TEXT HERE</a>`
 
+***
 ## Tables
 
 We will often find ourselves using tables to display data. Don't be intimidated by the word "data", it just means information.
@@ -120,6 +128,7 @@ The above code displays the following:
     </tbody>
 </table>
 
+***
 ## Forms
 
 
@@ -378,8 +387,278 @@ If you use the for attribute in a label element it has to match the id of an inp
 <input type="text" id="field-id">
 ```
 
+***
 ## Div & Span
 
 Div Element `<div></div>`: Block level elements that allow you to group content that belongs together into a container.
 
 Span Element `<span></span>`: Inline elements that work like the div element, but are meant for smaller bits of information (e.g. Pieces of text inside a paragraph).
+
+***
+## HTML5 Tag Conventions
+
+* __DOCTYPE__: `<!DOCTYPE html>`
+* __Character Encoding__: `<meta charset="utf-8">`
+* __Scripts__: `<script src="main.js"></script>`
+* __Links__: `<link rel="stylesheet" href="style.css">`
+
+***
+## Rich Media
+
+### Cavnas Element
+
+The HTML `<canvas>` element is used to draw graphics, on the fly, via JavaScript. The `<canvas>` element is only a container for graphics. You must use JavaScript to actually draw the graphics. Canvas has several methods for drawing paths, boxes, circles, text, and adding images.
+
+Draw a Line w/ JS inside a Canvas Element:
+
+```html
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.moveTo(0,0);
+ctx.lineTo(200,100);
+ctx.stroke();
+</script>
+```
+
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.moveTo(0,0);
+    ctx.lineTo(200,100);
+    ctx.stroke();
+</script>
+
+### Audio Element
+
+Embedding an audio file in an HTML5 document is simple:
+
+```html
+<audio src="desperado.mp3">
+</audio>
+```
+
+__Autoplay Attribute__
+
+*The autoplay attribute does not work in mobile devices like iPad and iPhone.*
+
+```html
+<audio src="desperado.mp3" autoplay>
+</audio>
+```
+
+__Autoplay & Loop Attribute__
+
+```html
+<audio src="desperado.mp3" autoplay loop>
+</audio>
+```
+
+__Playback Controls__
+
+```html
+<audio src="desperado.mp3" controls>
+</audio>
+```
+
+#### The problem with MP3's...
+
+`MP3` format is widely used everywhere, but it is not an open format. This means is that browsers can't decode MP3 files without paying a fee. `OGG` files are the open format version of MP3, sadly it is not supported by all browsers either.
+
+
+#### Browser Support
+<table>
+    <thead>
+        <tr>
+            <th style="width:25%">Browser</th>
+            <th style="width:25%">MP3</th>
+            <th style="width:25%">Wav</th>
+            <th style="width:25%">Ogg</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Internet Explorer</td>
+            <td>YES</td>
+            <td>NO</td>
+            <td>NO</td>
+        </tr>
+        <tr>
+            <td>Chrome</td>
+            <td>YES</td>
+            <td>YES</td>
+            <td>YES</td>
+        </tr>
+        <tr>
+            <td>Firefox</td>
+            <td>YES</td>
+            <td>YES</td>
+            <td>YES</td>
+        </tr>
+        <tr>
+            <td>Safari</td>
+            <td>YES</td>
+            <td>YES</td>
+            <td>NO</td>
+        </tr>
+        <tr>
+            <td>Opera</td>
+            <td>YES</td>
+            <td>YES</td>
+            <td>YES</td>
+        </tr>
+    </tbody>
+</table>
+
+#### MIME Types for Audio Formats
+
+<table class="w3-table-all notranslate" id="table2">
+    <thead>
+        <tr>
+        <th style="width:50%">Format</th>
+        <th style="width:50%">MIME-type</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>MP3</td>
+            <td>audio/mpeg</td>
+        </tr>
+        <tr>
+            <td>Ogg</td>
+            <td>audio/ogg</td>
+        </tr>
+        <tr>
+            <td>Wav</td>
+            <td>audio/wav</td>
+        </tr>
+    </tbody>
+</table>
+
+A browser that can play back Ogg Vorbis files will look no further than the first source element. A browser that can play MP3 files will skip over the first source element and play the file in the second source element.
+
+```html
+<audio controls>
+    <source src="desperado.ogg">
+    <source src="desperado.mp3">
+</audio>
+```
+
+### Video Element
+
+Works much like the audio element (e.g. autoplay, controls, etc.), but you'll want to include dimensions for this element.
+
+*The autoplay attribute does not work in mobile devices like iPad and iPhone.*
+
+```html
+<video src="caddyshack.mp4" width="400" height="800" controls>
+</video>
+```
+
+Also like the audio element there is a battle for dominance regarding format. 
+
+#### Browser Support 
+
+<table class="w3-table-all notranslate">
+<thead>
+    <tr>
+        <th style="width:25%">Browser</th>
+        <th style="width:25%">MP4</th>
+        <th style="width:25%">WebM</th>
+        <th style="width:25%">Ogg</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+<td>Internet Explorer</td>
+<td>YES</td>
+<td>NO</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>Chrome</td>
+<td>YES</td>
+<td>YES</td>
+<td>YES</td>
+</tr>
+<tr>
+<td>Firefox</td>
+<td>YES</td>
+<td>YES</td>
+<td>YES</td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>YES</td>
+<td>NO</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>Opera</td>
+<td>YES (from Opera 25)</td>
+<td>YES</td>
+<td>YES</td>
+</tr>
+</tbody></table>
+
+#### HTML Video - Media Types
+
+<table class="w3-table-all notranslate" id="table1">
+<thead>
+    <tr>
+        <th style="width:50%">File Format</th>
+        <th style="width:50%">Media Type</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>MP4</td>
+        <td>video/mp4</td>
+    </tr>
+    <tr>
+        <td>WebM</td>
+        <td>video/webm</td>
+    </tr>
+    <tr>
+        <td>Ogg</td>
+        <td>video/ogg</td>
+    </tr>
+</tbody></table>
+
+*MP4 is patent-encumbered*
+
+Use can use the video element like the audio element to have your video play on all browser that support the video element (see above for details).
+
+```html
+<video width="400" height="200" poster="picture.jpg" controls>
+    <source src="caddyshack.ogv">
+    <source src="movie.mp4">
+</video>
+```
+
+One of the limitations of relying on a plug-in for rich media is that plug-in content is sandboxed away from the rest of the web page. Having native rich media elements in HTML means that we can have our media content play nicely with other browser technologies such as CSS and JavaScript.
+
+## Difference between `id` and `name` attributes
+
+The `id` attribute identifies your element for the front-end (CSS and JavaScript.) It can be used on ANY element.
+
+The `name` attribute belongs ONLY on form elements and is used in the back-end (PHP, Ruby on Rails, etc.) to identify your form's values.
+
+## What is the DOM?
+
+### Definition
+The Document Object Model (DOM) is a structured representation of your HTML as generated by the browser, allowing access to the elements of your web page so they may be manipulated. Generally, it is JavaScript that does this manipulation. The DOM is notoriously hard to define, so here's a metaphor:
+
+### Metaphor
+Let's say we have a piece of paper that says "Coding Dojo Rocks!". We take out some magnetic letters, go to our fridge, and write out "Coding Dojo Rocks!", as per our paper. That paper is your HTML, and the magnets can be considered our DOM.
+
+In a lot of cases, the magnets will remain the same as what is written on our paper, so there will be almost no difference between HTML and the DOM. In other cases, we will want to change the words on the fridge, or alter the color of the magnets, or add other neat functionality. Changing those things is manipulating the DOM; the HTML paper we started with is unchanged, but the DOM is no longer identical
+
+### Explaination of Metaphor
+When you see JavaScript that changes the DOM or hear people talking about DOM manipulation, they are basically talking about interacting with those fridge magnets, after they had copied off of our HTML paper.
