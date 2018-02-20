@@ -18,3 +18,7 @@ Git has three main states that your files can reside in: committed, modified, an
   * Working Directory: A single checkout of the project. These files are pulled out of the compressed database in the Git Directory and placed on disk for you to use or modify.
   * Staging Area: Is a simple file, generally contained in your Git directory, that stores information about what will go into your next commit -- basically an "index" of the staged files.
   * Git Directory (Repository): Metadata & Object Database of the project (a compressed reference "skeleton" of the project). This is the essential part of Git -- it's what is copied when you clone a repository from GitHub or another computer.
+
+## Github Repo Link 
+
+`git remote add origin https://github.com/<github username>/<github repo name>.git`

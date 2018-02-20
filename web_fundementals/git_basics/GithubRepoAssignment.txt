@@ -1,0 +1,17 @@
+STEPS:
+
+Created a new repository on GITHUB and called it GitHubRepoAssignment
+
+Opened my terminal/command prompt, and created a GitHubRepoAssignment folder
+$ mkdir GitHubRepoAssignment
+
+Initialize a git repository in your GitHubRepoAssignment directory
+$ cd GitHubRepoAssignment && git init
+
+ Make a readme.md in your GitHubRepoAssignment folder explaining its contents.
+ $ vim readme.md
+
+Do a status check to see the changes made, then add, commit and push your changes
+$ git status
+$ git add . && git commit -m "inital commit"
+$ git push origin master
