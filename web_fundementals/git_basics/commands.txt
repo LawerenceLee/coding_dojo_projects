@@ -1,0 +1,13 @@
+1. mkdir gittest && cd gittest/
+2. git init
+3. touch index.html style.css aboutMe.txt
+4. git add .
+5. git commit -m "initial commit"
+6. git status 
+7. git add aboutMe.txt
+8. git commit -m "updated aboutMe"
+9. git add aboutMe.txt
+10. git commit -m "added favorite movie"
+11. git log
+12. git revert 442fd8fd7
+13.
