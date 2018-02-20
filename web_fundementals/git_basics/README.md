@@ -45,3 +45,12 @@ Also, note that fetch needs to be followed by a merge!
 Or, you can use the pull command which is a shortcut for fetch + merge.
 
 `$ git pull origin master -m "this is a fetch and a merge in one command!"`
+
+## Collaborative Workflow
+
+* Create a project repository in GitHub.
+* Clone that repository to your local machine.
+* To work on something new, create a descriptively-named branch on GitHub.
+* Create a branch with the same name on your local repository. Pull the GitHub branch to your local branch.
+* Follow the workflow on your local machine as mentioned from the previous sections of this course.
+* Regularly push your work to the GitHub branch! (After every major commit on your local machine.)
