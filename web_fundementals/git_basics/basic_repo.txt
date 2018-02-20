@@ -1,0 +1,9 @@
+Basic Repo
+
+ 1. Created a new repo on GitHub and called it basic_repo
+ 2. Created a local repository also called basic_repo
+ 3. Created fake_file.txt, fake_md.md inside my local repo and add a few lines to each
+ 4. Added, commited, and pushed these changes to GitHub
+ 5. Changed local copies of both files and pushed them to GitHub
+    - Added a list of my favorite things to fake_file
+    - Added a header and unordered list to fake_md
