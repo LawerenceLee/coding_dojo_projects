@@ -10,4 +10,5 @@
 10. git commit -m "added favorite movie"
 11. git log
 12. git revert 442fd8fd7
-13. blah 
+13. git add aboutMe.txt
+14. git commit -m "updated fave movie" 
