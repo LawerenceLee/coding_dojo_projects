@@ -35,5 +35,13 @@ ul {
     vertical-align: top;
     border-radius: 15px;
     padding: 20px;
-    
+}
+#content a {
+    color: #65d5dc;
+}
+#content li{
+    margin-top: 10px;
+}
+.purple {
+    color: #6f79f1;
 }
