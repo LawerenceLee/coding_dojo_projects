@@ -12,19 +12,28 @@
     border-radius: 15px;
 }
 nav {
-    margin: 8px;
+    margin: 16px 8px;
     padding: 20px;
     background-color: #2a7d8c;
     display: inline-block;
+    width: 19%;
     color: #c2d7ec;
     border-radius: 15px;
 }
 nav a {
     color: #64d5d8;
 }
-nav > a {
-    /* text-decoration: none; */
-}
 ul {
     margin: 0;
+}
+#content {
+    margin: 16px 6px;
+    display: inline-block;
+    color: #bed7ec;
+    background-color: #0e1822;
+    width: 71%;
+    vertical-align: top;
+    border-radius: 15px;
+    padding: 20px;
+    
 }
