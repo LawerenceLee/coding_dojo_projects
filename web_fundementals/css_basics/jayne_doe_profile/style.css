@@ -1,0 +1,12 @@
+#title_bar {
+    background-color: #f8f8f8;
+}
+#title_bar * {
+    display: inline-block;
+}
+#title_bar h2 {
+    margin-left: 600px;
+}
+#title_bar h1 {
+    margin-left: 30px;
+}
