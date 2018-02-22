@@ -1,7 +1,7 @@
 
 #wrapper {
     background-color: #1c335d;
-    height: 1000px;
+    /* height: 1000px; */
     padding: 5px;
 }
 #title {
@@ -44,4 +44,15 @@ ul {
 }
 .purple {
     color: #6f79f1;
+}
+#more_info {
+    background-color: #5d6572;
+    padding: 20px;
+    border-radius: 15px;
+    color: #b2d2e6;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+#more_info a {
+    color: #65d5dc; 
 }
