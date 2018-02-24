@@ -92,14 +92,15 @@ h1, h3, h4, a, p {
 }
 .technologies p {
     border-radius: 8px;
-    border: solid 2px #1d4332;
+    border: solid 1px #1d4332;
     background-color: #407c61;
     display: inline-block;
     color: white;
     font-size: 12px;
     padding: 3px;
     margin: 0 0 20px 0;
-    filter: drop-shadow(30px 10px 4px #4444dd);
+    filter: drop-shadow(1px 3px 2px gray);
+
 }
 /* LEFT CENTER RIGHT PROJECT BINS */
 #left,
@@ -121,4 +122,15 @@ footer a {
 footer img {
     vertical-align: center;
     width: 20px;
+}
+
+/* PROJECT LINKS INSIDE TECHNOLOGIES DIVS* * * * * * * * * * * * * * * * * * ** * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+#fiveElevenLink {
+    margin-left: 119px;
+}
+#familycontactsLink {
+    margin-left: 106px;
+}
+#lamodeLink {
+    margin-left: 126px;
 }
