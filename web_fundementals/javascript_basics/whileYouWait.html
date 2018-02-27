@@ -5,13 +5,10 @@
     <script>
         var daysUntilMyBirthday = 60;
         var daysUntilMsg = "days until my birthday."
-        var sadMsg = "Such a ways AWAY!!!!!!!"
-        var excitedMsg = "Wow, It's almost my birthday."
-        var screamMsg = " OMG, It's almost my birthday."
 
         while (daysUntilMyBirthday >= 0) {
             if (daysUntilMyBirthday > 30) {
-                console.log(daysUntilMyBirthday, daysUntilMsg, sadMsg);
+                console.log(daysUntilMyBirthday, daysUntilMsg, "Such a ways AWAY!!!!!!!");
             }
             else if(daysUntilMyBirthday == 0) {
                 console.log("♪ღ♪*•.¸¸¸.•*¨¨*•.¸¸¸.•*•♪ღ♪¸.•*¨¨*•.¸¸¸.•*•♪ღ♪•*");
@@ -19,10 +16,10 @@
                 console.log(" *•♪ღ♪*•.¸¸¸.•*¨¨*•.¸¸¸.•*•♪¸.•*¨¨*•.¸¸¸.•*•♪ღ♪•«")
             }
             else if(daysUntilMyBirthday < 5) {
-                console.log(daysUntilMyBirthday, daysUntilMsg, screamMsg);
+                console.log(daysUntilMyBirthday, daysUntilMsg, "OMG, It's almost my birthday.");
             }
             else if(daysUntilMyBirthday < 30) {
-                console.log(daysUntilMyBirthday, daysUntilMsg, excitedMsg);
+                console.log(daysUntilMyBirthday, daysUntilMsg, "Wow, It's almost my birthday.");
             }
             daysUntilMyBirthday -= 1;
         }
