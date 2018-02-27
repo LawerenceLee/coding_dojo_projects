@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Numbers Only</title>
+    <script>
+        function numbersOnly(arr) {
+            var newArr = [];
+            for (var x=0; x<arr.length; x++) {
+                if (typeof arr[x] === "number") {
+                    newArr.push(arr[x]);
+                }
+            }
+            return newArr
+        }
+        console.log(numbersOnly([1, "fun time", "coding", 42, 7, 13]));
+
+        function altNumbersOnly(arr) {
+            for (var x=0; x<arr.length; x++) {
+                if (typeof arr[x] != "number") {
+                    arr.splice(x, 1)
+                    x--
+                }
+            }
+            return arr
+        }
+        var my_arr = altNumbersOnly([1, "fun time", "coding", 42, 7, 13]);
+        console.log(my_arr)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
