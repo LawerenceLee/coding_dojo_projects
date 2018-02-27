@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>For A Few Billion</title>
+    <script>
+        function forAFewBillion(days) {
+            var penny = 1;
+            var reward = 0;
+            for (var x=1; x<days+1; x++) {
+                reward += penny;
+                penny = penny * 2
+                }
+            return reward * 0.01
+        }
+        console.log(forAFewBillion(30))
+
+            var tThousand = false;
+            var billion = false;
+            var infinity = false;
+        for (var x=1; x<=100000; x++) {
+            if (forAFewBillion(x) >= 10000 && tThousand == false) {
+                console.log("Takes", x, "days to earn $ 10000");
+                tThousand = true;
+            }
+            if (forAFewBillion(x) == Infinity && infinity == false) {
+                console.log("Takes", x, "days to earn Infinity Dollars");
+                infinity = true;
+            }
+            if (forAFewBillion(x) >= 1000000000 && billion == false) {
+                console.log("Takes", x, "days to earn Billion Dollars");
+                billion = true;
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
