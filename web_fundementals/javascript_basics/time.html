@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>I do Declare</title>
+    <script>
+        // var HOUR = 8;
+        // var MINUTE = 50;
+        // var PERIOD = "AM";
+        var HOUR = 7;
+        var MINUTE = 15;
+        var PERIOD = "PM";
+        var TOH;  // Time of hour
+        var TOD;  // Time of Day
+
+        if (MINUTE < 30) {
+            TOH = "just after";
+        }
+        else if (MINUTE > 30) {
+            TOH = "almost";
+            HOUR += 1 
+        }
+
+        if (PERIOD == "AM") {
+            TOD = "in the morning."
+        }
+        else if (PERIOD == "PM") {
+            TOD = "in the evening."
+        }
+        console.log("Its", TOH, HOUR, TOD)
+    </script>
+</head>
+<body>
+</body>
+</html
