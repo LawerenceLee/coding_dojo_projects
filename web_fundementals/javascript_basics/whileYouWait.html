@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>While You Wait</title>
+    <script>
+        var daysUntilMyBirthday = 60;
+        var daysUntilMsg = "days until my birthday."
+        var sadMsg = "Such a ways AWAY!!!!!!!"
+        var excitedMsg = "Wow, It's almost my birthday."
+        var screamMsg = " OMG, It's almost my birthday."
+
+        while (daysUntilMyBirthday >= 0) {
+            if (daysUntilMyBirthday > 30) {
+                console.log(daysUntilMyBirthday, daysUntilMsg, sadMsg);
+            }
+            else if(daysUntilMyBirthday == 0) {
+                console.log("♪ღ♪*•.¸¸¸.•*¨¨*•.¸¸¸.•*•♪ღ♪¸.•*¨¨*•.¸¸¸.•*•♪ღ♪•*");
+                console.log("♪ღ♪░H░A░P░P░Y░ B░I░R░T░H░D░A░Y░░♪ღ♪")
+                console.log(" *•♪ღ♪*•.¸¸¸.•*¨¨*•.¸¸¸.•*•♪¸.•*¨¨*•.¸¸¸.•*•♪ღ♪•«")
+            }
+            else if(daysUntilMyBirthday < 5) {
+                console.log(daysUntilMyBirthday, daysUntilMsg, screamMsg);
+            }
+            else if(daysUntilMyBirthday < 30) {
+                console.log(daysUntilMyBirthday, daysUntilMsg, excitedMsg);
+            }
+            daysUntilMyBirthday -= 1;
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
