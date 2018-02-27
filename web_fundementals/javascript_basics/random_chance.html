@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Random Change</title>
+    <script>
+        function randomChance() {
+            var randomCoinsToWin = Math.floor(Math.random()*50);
+            if (Math.random() < 0.01) {
+                console.log("You Won")
+                return randomCoinsToWin;
+            }
+            console.log("You LOST!")
+            return 0;
+        }
+
+        function oneInOneHundred(quarters) {
+            var gamesPlayed = 0;
+            // var startCoins = quarters;
+            while (quarters < 200 ) {
+                if (quarters != 0) {
+                    quarters += randomChance() - 1;  // Minus one for the quarter spent on game
+                    gamesPlayed++
+                }
+                else {
+                    console.log("Games Played", gamesPlayed)
+                    console.log("GAME OVER");
+                    break
+                }
+            }
+            console.log('You earned:', quarters);
+            console.log("Games Played", gamesPlayed)
+        }
+        oneInOneHundred(100)
+    </script>
+</head>
+<body>
+</body>
+</html>
