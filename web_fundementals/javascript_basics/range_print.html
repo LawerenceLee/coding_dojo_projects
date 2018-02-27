@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Range Print</title>
+    <script>
+        function printRange(start, end, skip) {
+            var arr = [];
+            if (typeof skip == "undefined") {
+                skip = 1;
+            }
+            if (typeof end == "undefined") {
+                end = start;
+                start = 0;
+            }
+            for (start; start<end; start+=skip) {
+                arr.push(start);
+            }
+            console.log(arr)
+        }
+        printRange(1,23, 10)
+    </script>
+</head>
+<body>
+</body>
+</html>
