@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fancy Array</title>
+    <script>
+        function fancyArray(arr, symbol, reversed) {
+            if (typeof symbol === "undefined") {
+                symbol = "->"
+            }
+
+            if (reversed == true) {
+                for (var x=arr.length-1; x>-1; x--) {
+                    console.log(x, symbol, arr[x])
+                }
+            }
+            else {
+                for (var x=0; x<arr.length; x++) {
+                    console.log(x, symbol, arr[x])
+                }
+            }
+        }
+        fancyArray(["James", "Jill", "Jane", "Jack"], ">>>", true)
+    </script>
+</head>
+<body>
+</body>
+</html>
