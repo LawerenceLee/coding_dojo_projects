@@ -25,18 +25,17 @@
 
 	<script>
 
-		var words = ["fun", "exciting", "about not giving up", "being helpful", "being open", "what I learned at CodingDojo!"],
-			el = document.getElementById('magic'),
-			word_counter = 0,
+		var words = ["fun", "exciting", "about not giving up", "being helpful", "being open", "what I learned at CodingDojo!"];
+			el = document.getElementById('magic');
+			word_counter = 0;
 			character_counter = 0;
 
 		function updateText()
 		{
-			el.innerHTML = el.innerHTML+words[word_counter][character_counter++];
-
+			// if char_counter is equal to number of char for the given word
 			if(character_counter == words[word_counter].length)
 			{
-				word_counter++; 	//choose a different word
+				word_counter++; 	//choose a different wor
 				character_counter = 0;	//start over with the first character of the word
 				el.innerHTML = '';  //set the html to be blank
 
@@ -44,9 +43,16 @@
 				if(word_counter == words.length)
 					word_counter = 0;
 			}
+
+			el.innerHTML += words[word_counter][character_counter++];
+
+			if (words[word_counter][character_counter] == " ") {
+				el.innerHTML += '&nbsp;'
+				character_counter++;	
+			}
 		}
 
-		setInterval(updateText,300);
+		setInterval(updateText, 500);
 
 	</script>
 
