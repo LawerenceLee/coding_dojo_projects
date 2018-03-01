@@ -6,23 +6,52 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-        // $('body').click(function(){});
+        $(document).ready(function(){
+            $('#darken').click(function(){
+                $(this).css("background-color", "black");
+                $(this).css("color", "gray");
+            });
+            $('#disappear-button').click(function(){
+                $('#to-disappear').hide("slow");
+            });
+            $('#show-button').click(function(){
+                $('#to-disappear').show("slow");
+            });
+            $('#disappear-show-button').click(function(){
+                $('#to-disappear').toggle("slow");
+            });
+            $("#on-switch").click(function(){
+                $('#input-box').slideDown();
+            });
+            $("#off-switch").click(function(){
+                $('#input-box').slideUp();
+            });
+            $("#toggle-switch").click(function(){
+                $('#input-box').slideToggle();
+            });
+        });
     </script>
 </head>
 <body>
     <div>
-        <button></button>
-        <h1></h1>
-        <p></p>
+        <h1>Change the CSS Color Properties of the Button</h1>
+        <button id="darken">Drain Me of Color</button>
+        <p>Uses the .click and .css methods from the jQuery Library</p>
     </div>
     <div>
-        <button></button>
-        <h1></h1>
-        <p></p>
+        <h1>Hide an Element from View and Make it Reappear</h1>
+        <button id="disappear-button">Click To Disappear the Text</button>
+        <p id="to-disappear">MAKE THIS OBNOXIOUSLY BOLDED TEXT DISAPPEAR</p>
+        <button id="show-button">Click to have Text Reappear</button>
+        <button id="disappear-show-button">Either Show or Hide Text</button>
+        <p>Uses the .click, .show, .toggle, and .hide methods from the jQuery Library</p>
     </div>
     <div>
-        <button></button>
-        <h1></h1>
+        <h1>Slide Elements UP, DOWN, TOGGLE</h1>
+        <button id="on-switch">DOWN</button>
+        <p id="input-box">You Found Me!</p>
+        <button id="off-switch">UP</button>
+        <button id="toggle-switch">TOGGLE</button>
         <p></p>
     </div>
     <div>
