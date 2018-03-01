@@ -29,6 +29,36 @@
             $("#toggle-switch").click(function(){
                 $('#input-box').slideToggle();
             });
+            $("#fade-out").click(function(){
+                $('#faded').fadeOut();
+            });
+            $("#fade-in").click(function(){
+                $('#faded').fadeIn();
+            });
+            $("#add-button").click(function(){
+                $(".checklist-item").before('<button class="checklist-button">Look, A Button Magically Appeared</button>');
+                $(".checklist-item").after('<p class="checklist-button"> Look TEXT appeared</p>');
+            });
+            $("#needs-ending").click(function(){
+                $("#short-story").append("<strong>&#32;THE END</strong>");
+            });
+            $("#html-method").click(function(){
+                var htmlString = $("#grabbing").html();
+                $("#html-method").text(htmlString);
+            });
+            $("#attr-div>input").change(function(){
+                var $input = $( this );
+                $( "#attr-p" ).html( ".attr( 'checked' ): <b>" + $input.attr( "checked" ) + "</b><br>" +
+                    ".prop( 'checked' ): <b>" + $input.prop( "checked" ) + "</b><br>" +
+                    ".is( ':checked' ): <b>" + $input.is( ":checked" ) + "</b>" );
+                }).change();
+            $( "#val>input" ).keyup(function() {
+                var value = $( this ).val();
+                $( "#val-p" ).text( value );
+            }).keyup();
+            $( "#data" ).data( "test", { first: 16, last: "pizza!" } );
+            $( "#data>span:first" ).text( $( "#data" ).data( "test" ).first );
+            $( "span:last" ).text( $( "#data" ).data( "test" ).last );
         });
     </script>
 </head>
@@ -52,82 +82,58 @@
         <p id="input-box">You Found Me!</p>
         <button id="off-switch">UP</button>
         <button id="toggle-switch">TOGGLE</button>
+        <p>Uses the .click and .slideToggle, .slideUp, .slideDown methods from the jQuery Library</p>
+    </div>
+    <div>
+        <h1>Fading In and Out</h1>
+        <button id="fade-out">Fade The TEXT OUT</button>
+        <button id="fade-in">Fade The TEXT IN</button>
+        <p id="faded">Fade Me in and out.</p>
+        <p>Uses the .click, .fadeIn, and .fadeOut methods from the jQuery Library</p>
         <p></p>
     </div>
     <div>
-        <button></button>
-        <h1></h1>
-        <p></p>
+        <h1>Add HTML before and After Elements w/ jQuery</h1>
+        <button id="add-button">Add buttons</button><br>
+        <p class="checklist-item">One</p>
+        <p class="checklist-item">Two</p>
+        <p class="checklist-item">Three</p>
+        <p class="checklist-item">Four</p>
+        <p class="checklist-item">Five</p><br>
+        <p>Uses the .click, .before, and .after methods from the jQuery Library</p>
     </div>
     <div>
-        <button></button>
-        <h1></h1>
-        <p></p>
+        <h1>Appending to Elements</h1>
+        <button id="needs-ending">Looks as though your story needs an ending</button>
+        <p id="short-story">For sale: baby shoes, never worn</p>
+        <p>Uses the .click, .append methods from the jQuery Library</p>
     </div>
-    <div>
-        <button></button>
-        <h1></h1>
-        <p></p>
+    <div id="grabbing">
+        <h1>Grabbing HTML from Elements</h1>
+        <button id="html-method">What does the HTML look like inside this div?</button>
+        <p>Uses the .click, .text and .html methods from the jQuery Library</p><br><br>
+        <p>Be aware .html looks for the HTML inside of the element it is passed. Therefore, if you pass a single element you'll only recieve it's text back</p>
     </div>
-    <div>
-        <button></button>
-        <h1></h1>
-        <p></p>
+    <div id="attr-div">
+        <h1>Grabbing HTML Attributes from Elements</h1>
+        <input id="check1" type="checkbox" checked="checked">
+        <label for="check1">Check me</label>
+        <p id="attr-p"></p><br><br>
+        <p>Uses the .click, .prop, .is, .isattr, .html, .change methods from the jQuery Library</p>
     </div>
-    <div>
-        <button></button>
-        <h1></h1>
-        <p></p>
+    <div id="val">
+        <h1>Getting The Current Value from an Element</h1>
+        <input type="text" value="Erase me">
+        <p id="val-p"></p><br><br>
+        <p>Uses the .val and .text change methods from the jQuery Library</p>
     </div>
-    <div>
-        <button></button>
-        <h1></h1>
-        <p></p>
-    </div>
-    <div>
-        <button></button>
-        <h1></h1>
-        <p></p>
-    </div>
-    <div>
-        <button></button>
-        <h1></h1>
-        <p></p>
-    </div>
-    <div>
-        <button></button>
-        <h1></h1>
-        <p></p>
-    </div>
-    <div>
-        <button></button>
-        <h1></h1>
-        <p></p>
-    </div>
-    <div>
-        <button></button>
-        <h1></h1>
-        <p></p>
-    </div>
-    <div>
-        <button></button>
-        <h1></h1>
-        <p></p>
-    </div>
-    <div>
-        <button></button>
-        <h1></h1>
-        <p></p>
-    </div>
-    <div>
-        <button></button>
-        <h1></h1>
-        <p></p>
-    </div>
-    <div>
-        <button></button>
-        <h1></h1>
-        <p></p>
+    <div id="data">
+        <h1>Setting and Viewing data within Elements</h1><br>
+        The values stored were
+        <span></span>
+        and
+        <span></span> 
+        <p>Uses the .data and .text change methods from the jQuery Library</p>
     </div>
 </body>
 </html>

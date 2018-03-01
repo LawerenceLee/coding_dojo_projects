@@ -44,3 +44,26 @@ button {
 #input-box {
     display: none;
 }
+
+
+.checklist-button {
+    background-color: black;
+    color: white; 
+}
+
+#data > div {
+    border: none;
+    margin: 5px;
+    background: yellow;
+}
+#data > button {
+    margin: 5px;
+    font-size: 14px;
+}
+#data > p {
+    margin: 5px;
+    color: blue;
+}
+#data > span {
+    color: red;
+}
