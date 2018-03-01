@@ -3,8 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Ninja to cat</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('img').click(function(){
+                var current_src_val = $(this).attr('src');
+                var current_data_alt_src_val = $(this).attr('data-alt-src');
+                $(this).attr('src', current_data_alt_src_val);
+                $(this).attr('data-alt-src', current_src_val);
+            });
+        });
+    </script>
 </head>
 <body>
-    
+    <img src="img/ninja0.png" data-alt-src="img/cat0.png">
+    <img src="img/ninja1.png" data-alt-src="img/cat1.png">
+    <img src="img/ninja2.png" data-alt-src="img/cat2.png">
+    <img src="img/ninja3.png" data-alt-src="img/cat3.png">
+    <img src="img/ninja4.png" data-alt-src="img/cat4.png">
 </body>
 </html>
