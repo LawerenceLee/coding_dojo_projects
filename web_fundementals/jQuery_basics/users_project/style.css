@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+table {
+    margin-bottom: 20px;
+    border-collapse: separate;
+    border-spacing: 15px;
+    border: solid 2px black;
+}
+
+
+form {
+    display: inline-block;
+    margin: 10px;
+}
+form > div {
+    display: block;
+}
+button {
+    margin-left: 242px;
+    margin-top: 20px;
+    display: block;
+    padding: 0 5px;
+}
