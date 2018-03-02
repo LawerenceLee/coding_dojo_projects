@@ -36,18 +36,22 @@ form {
     padding: 5px 10px;
 }
 
-.contact-cards {
+#contact-cards {
     vertical-align: top;
     display: inline-block;
     margin: 20px;
 }
-.contact-cards > div {
+#contact-cards > div {
+    margin-bottom: 10px;
     padding: 39px 10px 10px 10px;
     text-align: center;
     width: 265px;
     height: 65px;
     border: 3px solid black;;
 }
-.contact-cards > div > h1 {
+.contact-card h1 {
     margin-bottom: 5px;
+}
+.contact-card h2 {
+    display: none;
 }

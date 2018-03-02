@@ -8,11 +8,22 @@
     <script>
         $(document).ready(function(){
             $(document).on("click", ".btn", function(){
-                var name = $("#first_name").val() + $("#last_name").val();
-                var contact_card = "<div class='contact-card'><h1>" + name + "</h1><p>Click for description!</p></div>" 
-                // contact_card.attr("cc-descrip",  $("#description").val())
-                $(".contact-cards").append(contact_card)
+                var name = $("#first_name").val() + " " + $("#last_name").val();
+                var contact_card = '<div class="contact-card"><h1>' + name + "</h1>"
+                // Initially the h2 is hidden
+                contact_card += "<h2>" + $("#description").val() + "</h2>" 
+                contact_card += "<p>Click for description!</p></div>" 
+                $("#contact-cards").append(contact_card)
+                $("#first_name").val("")
+                $("#last_name").val("")
+                $("#description").val("")
             });
+            $("#contact-cards").on("click", ".contact-card", function(){
+                var currentlyShown = $(this).children(":visible")
+                var currnetlyHidden = $(this).children(":hidden")
+                currentlyShown.hide()
+                currnetlyHidden.show()
+            })
         });
     </script>
 </head>
@@ -34,11 +45,6 @@
             <button class="btn" type="button">Add User</button>
         </div>
     </form>
-    <div class="contact-cards">
-        <div>
-            <h1>Michael Choi</h1>
-            <p>Click for description!</p>
-        </div>
-    </div>
+    <div id="contact-cards"></div>
 </body>
 </html>
