@@ -10,11 +10,11 @@
             $("button").click(function(){
                 var row_columns = ["#first_name", "#last_name", "#email", "#phone_num"]
                 var row = "<tr>";
-                for (var x=0; x<4; x++) {
+                for (var col in row_columns) {
                     // Create td tag w/ value & append to row
-                    row += "<td>" + $(row_columns[x]).val() + "</td>"  
+                    row += "<td>" + $(row_columns[col]).val() + "</td>"  
                     // Clear Input element of text
-                    $(row_columns[x]).val("")
+                    $(row_columns[col]).val("")
                 };
                 // Append closing tr tag for row
                 row += '</tr>'
