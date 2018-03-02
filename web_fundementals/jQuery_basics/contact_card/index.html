@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Card</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(document).on("click", ".btn", function(){
+                var name = $("#first_name").val() + $("#last_name").val();
+                var contact_card = "<div class='contact-card'><h1>" + name + "</h1><p>Click for description!</p></div>" 
+                // contact_card.attr("cc-descrip",  $("#description").val())
+                $(".contact-cards").append(contact_card)
+            });
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <div id="names">
+            <div align="right">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name">
+            </div>
+            <div align="right">
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name">
+            </div>
+        </div>
+        <div id="description-button">
+            <label for="description">Description:</label>
+            <textarea type="textarea" id="description" name="description"></textarea>
+            <button class="btn" type="button">Add User</button>
+        </div>
+    </form>
+    <div class="contact-cards">
+        <div>
+            <h1>Michael Choi</h1>
+            <p>Click for description!</p>
+        </div>
+    </div>
+</body>
+</html>
