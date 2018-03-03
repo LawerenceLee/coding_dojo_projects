@@ -1,0 +1,19 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 20px;
+}
+form {
+    margin-bottom: 40px;
+}
+form * {
+    padding: 5px 10px;
+}
+
+#data h3 {
+    margin-top: 10px;
+}
