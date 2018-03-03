@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pacman</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: black;
+            font-size: 0;
+        }
+        div.row div {
+            width: 20px;
+            height: 20px;
+            display: inline-block;	
+        }
+        div.brick {
+            background-color: blue;
+        }
+        div.coin {
+            background-image: url("coin.gif");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 90px;
+        }
+        div.empty {
+        }
+        div.pacman {
+            background-image: url("pacman.gif");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div id="world"></div>
+    <script>
+        var world = [
+            [2,2,2,2,2,2,2,2,2,2],
+            [2,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,2],
+            [2,2,2,2,2,2,2,2,2,2],
+        ];
+
+
+    function displayWorld() {
+        var output = "";
+
+        for (var x=0; x<world.length; x++) {
+            output += '\n<div class="row">\n'
+            for (var y=0; y<world[x].length; y++) {
+                if (world[x][y] == 2) {
+                    output += '<div class="brick"></div>'
+                }
+                else if (world[x][y] == 1) {
+                    output += '<div class="coin"></div>'
+                }
+                else if (world[x][y] == 0) {
+                    output += '<div class="empty"></div>'
+                }
+            }
+            console.log(output);
+            
+            output += "\n</div>"
+        } 
+        document.getElementById('world').innerHTML = output;
+    }
+    displayWorld()
+        
+    </script>
+</body>
+</html>
