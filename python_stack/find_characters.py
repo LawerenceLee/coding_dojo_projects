@@ -1,4 +1,4 @@
-word_list = ['hello','world','my','name','is','Anna']
+word_list = ['hello', 'world', 'my', 'name', 'is', 'Anna']
 
 new_list = []
 for word in word_list:
