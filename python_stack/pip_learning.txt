@@ -1,0 +1,22 @@
+pip install Django==1.11.9 
+This installs the 1.11.9 version of Python's web framework Django. The "==" is how you declare the version of the python package you'd like.
+
+pip list
+Shows a list of the python packages that currently stored on your system
+
+Running pip install Django==1.11.9 again will cause pip to notify that you've already installed the package along with its version, and python's version.
+
+pip freeze
+The output of this command is similar to list, in that all the packages are listed except the format in which the version numbers for the various packages are presented. list --> xattr (0.6.4) vs. freeze --> xattr==0.6.4
+
+pip freeze > requirements.txt
+Saves the output of pip freeze to requirements.txt
+
+pip uninstall Django
+Uninstalls Django
+
+pip show Django
+Shows pertinent info for your currently installed version of Django.
+
+pip search Flask
+Searches the entirety of the Pypi's repository of packages
