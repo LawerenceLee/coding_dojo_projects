@@ -1,0 +1,413 @@
+
+@media only screen and (max-width: 625px) {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    h1, h3, h4, a, p {
+        font-family: sans-serif;
+    }
+    #sub-wrapper {
+        padding: 20px;
+        background: radial-gradient(#6f5864, black)
+    }
+
+    /* TITLE BAR * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    #title-bar {
+        background-color: #f5f5f5;
+        padding: 10px 30px;
+    }
+    #title-bar h1 {
+        font-family: "Comic Sans MS";
+    }
+
+    /* SECTION (HEADER & BACKGROUND STYLING) * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    .section {
+        background: linear-gradient(to right, white, #dbccdb);
+    }
+    .section h3,
+    .section h4 {
+        color: #ffffff;
+        background: linear-gradient(#b3b3b7, #888593, #b3b3b6);
+        padding: 10px;
+    }
+
+    /* ABOUT ME W/ PHOTO * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    #aboutme {
+        margin-bottom: 20px;
+    }
+    #aboutme img {
+        width: 97.7%;
+        border: solid 5px #c0c0c0;
+        margin-bottom: 15px;
+    }
+    #aboutme div {
+        width: 100%;
+        overflow:hidden;
+    }
+    #aboutme div h3 {
+        display: block;
+    }
+    #aboutme div a {
+        color: black;
+        display: block;
+        margin: 20px 10px;
+    }
+
+    #p1_margin {
+        margin: 10px;
+    }
+    #p2_margin {
+        margin: 20px 10px 15px 10px;
+    }
+
+    /* PROJECT-BIN * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    .project-bin {
+        width: 100%
+    }
+    /* DESCRIPTION OF PROJECT BIN */
+    .discription p {
+        font-size: 14px;
+        text-align: justify;
+        margin: 10px 20px;
+    }
+    .discription img {
+        width: 100%;
+    }
+    /* TECHNOLOGIES 0F PROJECT BIN */
+    .technologies {
+        overflow: auto;
+    }
+    .technologies div {
+        margin: 5px;
+    }
+    .technologies img {
+        height: 44px;
+        margin: 8px 2px 0px 8px;
+    }
+    .technologies p {
+        border-radius: 8px;
+        border: solid 1px #1d4332;
+        background-color: #407c61;
+        color: white;
+        text-align: center;
+        font-size: 14px;
+        padding: 9px;
+        margin: 8px 13px 20px 13px;
+        filter: drop-shadow(1px 3px 2px gray);;
+        
+    }
+    /* LEFT CENTER RIGHT PROJECT BINS */
+    #left,
+    #center {
+    margin-bottom: 20px;
+    }
+
+
+    /* FOOTER * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    footer {
+        text-align: center;
+        background-color: #f5f5f5;
+        padding: 10px 0;
+    }
+    footer p {
+        margin-bottom: 10px;
+    }
+    footer div {
+        margin-top: 20px;
+    }
+    footer a {
+        display: none;
+    }
+    footer img {
+        margin: -6px 18px;
+        width: 30px;
+    }
+}
+/* __________________________________________________________________________________________________________________ */
+@media only screen and (min-width: 626px) {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    h1, h3, h4, a, p {
+        font-family: sans-serif;
+    }
+    #sub-wrapper {
+        padding: 20px;
+        background: radial-gradient(#6f5864, black)
+    }
+
+    /* TITLE BAR * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    #title-bar {
+        background-color: #f5f5f5;
+        padding: 10px 30px;
+    }
+    #title-bar h1 {
+        font-family: "Comic Sans MS";
+    }
+
+    /* SECTION (HEADER & BACKGROUND STYLING) * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    .section {
+        background: linear-gradient(to right, white, #dbccdb);
+    }
+    .section h3,
+    .section h4 {
+        color: #ffffff;
+        background: linear-gradient(#b3b3b7, #888593, #b3b3b6);
+        padding: 10px;
+    }
+
+    /* ABOUT ME W/ PHOTO * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    #aboutme {
+        margin-bottom: 20px;
+    }
+    #aboutme img {
+        width: 97.7%;
+        border: solid 5px #c0c0c0;
+        margin-bottom: 15px;
+    }
+    #aboutme div {
+        width: 100%;
+        font-size: 17px;
+        overflow:hidden;
+    }
+    #aboutme div h3 {
+        display: block;
+    }
+    #aboutme div a {
+        color: black;
+        display: block;
+        margin: 20px 10px;
+    }
+
+    #p1_margin {
+        margin: 10px;
+    }
+    #p2_margin {
+        margin: 20px 10px 15px 10px;
+    }
+
+    /* PROJECT-BIN * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    .project-bin {
+        width: 48.6%;
+        display: inline-block;
+        vertical-align: top;
+        min-height: 623px;
+    }
+    /* DESCRIPTION OF PROJECT BIN */
+    .discription {
+        min-height: 472px;
+    }
+    .discription p {
+        font-size: 17px;
+        text-align: justify;
+        margin: 10px 20px;
+    }
+    .discription img {
+        width: 100%;
+    }
+    /* TECHNOLOGIES 0F PROJECT BIN */
+    .technologies {
+        /* overflow: auto; */
+    }
+    .technologies div {
+        margin: 5px;
+    }
+    .technologies img {
+        height: 44px;
+        margin: 8px 2px 0px 8px;
+    }
+    .technologies p {
+        border-radius: 8px;
+        border: solid 1px #1d4332;
+        background-color: #407c61;
+        color: white;
+        text-align: center;
+        font-size: 14px;
+        padding: 9px;
+        margin: 8px 13px 20px 13px;
+        filter: drop-shadow(1px 3px 2px gray);;
+        
+    }
+    /* LEFT CENTER RIGHT PROJECT BINS */
+    #left,
+    #right {
+        margin: 0 2% 20px 0;
+    }
+
+
+    /* FOOTER * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    footer {
+        text-align: center;
+        background-color: #f5f5f5;
+        padding: 10px 0;
+    }
+    footer p {
+        margin-bottom: 10px;
+    }
+    footer div {
+        margin-top: 20px;
+    }
+    footer a {
+        display: none;
+    }
+    footer img {
+        margin: -6px 18px;
+        width: 30px;
+    }
+}
+/* ################################################################################################################# */
+@media only screen and (min-width: 1024px){
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    h1, h3, h4, a, p {
+        font-family: sans-serif;
+    }
+    #main_wrapper {
+        max-width: 1000px;
+    }
+    #sub-wrapper {
+        padding: 20px;
+        display: inline-block;
+        background: radial-gradient(#6f5864, black)
+    }
+    
+    /* TITLE BAR * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    #title-bar {
+        background-color: #f5f5f5;
+        padding: 10px 30px;
+    }
+    #title-bar * {
+        display: inline-block;
+    }
+    #title-bar h1 {
+        font-family: "Comic Sans MS";
+    }
+    #title-bar h3 {
+        margin-left: 441px;
+    }
+    
+    /* SECTION (HEADER & BACKGROUND STYLING) * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    .section {
+        background: linear-gradient(to right, white, #dbccdb);
+    }
+    .section h3,
+    .section h4 {
+        color: #ffffff;
+        background: linear-gradient(#b3b3b7, #888593, #b3b3b6);
+        padding: 10px;
+    }
+    
+    /* ABOUT ME W/ PHOTO * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    #aboutme {
+        margin-bottom: 20px;
+    }
+    #aboutme img {
+        width: 432px;
+        border: solid 5px #c0c0c0;
+    }
+    #aboutme div {
+        width: 494px;
+        vertical-align: top;
+        margin-left: 20px;
+        height: 294.2px;
+        display: inline-block;
+    }
+    #aboutme div h3 {
+        display: block;
+    }
+    #aboutme div a {
+        color: black;
+        padding-left: 10px;
+    }
+    
+    #p1_margin {
+        margin: 10px;
+    }
+    #p2_margin {
+        margin: 20px 10px 15px 10px;
+    }
+    
+    
+    /* PROJECT-BIN * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    .project-bin {
+        width: 31.7%;
+        min-height: 606px;
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 2% 20px 0;
+    }
+
+    .discription {
+        min-height: 390px;
+    }
+    /* DESCRIPTION OF PROJECT BIN */
+    .discription p {
+        font-size: 14px;
+        text-align: justify;
+    }
+    /* TECHNOLOGIES 0F PROJECT BIN */
+    .technologies div {
+        margin: 5px;
+    }
+    .technologies img {
+        height: 44px;
+        margin: 8px 2px 0px 8px;
+    }
+    .technologies p {
+        border-radius: 8px;
+        border: solid 1px #1d4332;
+        background-color: #407c61;
+        display: inline-block;
+        color: white;
+        font-size: 12px;
+        padding: 5px;
+        margin: 0 0 20px 0;
+        filter: drop-shadow(1px 3px 2px gray);
+    
+    }
+    /* LEFT CENTER RIGHT PROJECT BINS */
+    #left,
+    #center {
+        margin: 0 2% 20px 0;
+    }
+    #right {
+        margin-right: 0;
+    }
+    
+    
+    /* FOOTER * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    footer {
+        text-align: center;
+        background-color: #f5f5f5;
+        padding: 10px 0;
+    }
+    footer p {
+        margin-bottom: 10px;
+    }
+    footer div {
+        margin-top: 20px;
+    }
+    footer a {
+        color: black;
+        display: inline;    
+    }
+    footer img {
+        margin: -6px 0;
+        width: 20px;
+    }
+    
+    /* PROJECT LINKS INSIDE TECHNOLOGIES DIVS * * * * * * * * * * * * * * * * * ** * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    #fiveElevenLink {
+        margin-left: 119px;
+    }
+    #familycontactsLink {
+        margin-left: 106px;
+    }
+    #lamodeLink {
+        margin-left: 126px;
+    }
+}
