@@ -4,23 +4,21 @@ c = ['magical unicorns', 19, 'hello', 98.98, 'world']
 
 lsts = [a, b, c]
 for lst in lsts:
-    lst.sort()
     char = ''
-    sumed = 0
+    summed = 0
     for val in lst:
         if type(val) == int or type(val) == float:
-            sumed += val
+            summed += val
         else:
             char += " " + val
-    if sumed and char:
-        print("The list you entered is of mixed type.") 
-        print("Sum: {}".format(sumed))
+    if summed and char:
+        print("The list you entered is of mixed type.")
+        print("Sum: {}".format(summed))
         print("String:{}".format(char))
-    elif sumed:
-        print("The list you entered is of integer type")
-        print("Sum: {}".format(sumed))
+    elif summed:
+        print("The list you entered is of number type")
+        print("Sum: {}".format(summed))
     elif char:
         print("The list you entered is of string type")
         print("String: {}".format(char))
     print("")
-
