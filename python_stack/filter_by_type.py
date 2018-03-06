@@ -21,7 +21,7 @@ for val in values:
         else:
             print("That's a small number")
     elif type(val) == str:
-        if val >= 50:
+        if len(val) >= 50:
             print("Long sentence")
         else:
             print('Short Sentence')

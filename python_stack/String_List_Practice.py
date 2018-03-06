@@ -11,7 +11,18 @@ print(y[0], y[-1])
 new_y = [y[0], y[-1]]
 print(new_y)
 x.sort()
-first_lst = x[0:len(x)/2]
-second_lst = x[len(x)/2:len(x)]
-second_lst.insert(0, first_lst)
-print(second_lst)
+
+
+def split_list(arr):
+    if len(arr) % 2 == 0:
+        half = len(arr) / 2
+    else:
+        half = (len(arr) - 1) / 2
+
+    first_lst = x[:half]
+    second_lst = x[half:len(arr)]
+    second_lst.insert(0, first_lst)
+    return second_lst
+
+
+print(split_list(x))
