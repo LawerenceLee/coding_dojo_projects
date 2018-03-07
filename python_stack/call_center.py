@@ -33,16 +33,19 @@ class CallCenter():
     def add(self, call):
         self.calls_lst.append(call)
         self.queue_size += 1
+        return self
 
     def remove(self):
         self.calls_lst.pop(0)
         self.queue_size -= 1
+        return self
     
     def remove_by_number(self, number):
         for call in self.calls_lst:
             if call.number == number:
                 self.calls_lst.remove(call)
         self.queue_size -= 1
+        return self
 
     def info(self):
         for call in self.calls_lst:
@@ -50,6 +53,7 @@ class CallCenter():
             print("NAME: {}, NUMBER: {}, TIME: {}".format(
                 call.name, call.number, time))
         print("Current Queue: {}".format(self.queue_size))
+        return self
 
     def sort_calls(self):
         self.calls_lst = sorted(
@@ -60,14 +64,11 @@ class CallCenter():
 callcenter = CallCenter([callone, calltwo])
 callcenter.info()
 print("")
-callcenter.add(Call("SlackJaw", "125-242-1243", "05:55pm", "car trouble"))
-callcenter.info()
+callcenter.add(Call("SlackJaw", "125-242-1243", "05:55pm", "car trouble")).info()
 print("")
-callcenter.remove()
-callcenter.info()
+callcenter.remove().info()
 print("")
-callcenter.remove_by_number("125-242-1243")
-callcenter.info()
+callcenter.remove_by_number("125-242-1243").info()
 print("")
 callcenter.add(Call("Jakson", "232-241-2195", "01:00pm", "tractor trouble"))
 callcenter.add(
