@@ -1,9 +1,10 @@
 import datetime
+import hashlib
 
 
 class Call:
-    def __init__(self, uid, name, number, time, reason):
-        self.uid = uid
+    def __init__(self, name, number, time, reason):
+        self.uid = hashlib.sha224(name + number + time + reason).hexdigest()
         self.name = name
         self.number = number
         self.time = datetime.datetime.strptime(time, "%I:%M%p")
@@ -11,14 +12,16 @@ class Call:
 
     def display(self):
         time = self.time.strftime("%I:%M%p")
-        print("ID: {}, Caller: {}, Number: {}, Time: {}, Reason: {}".format(
+        print("ID: {}\nCaller: {}, Number: {}, Time: {}, Reason: {}".format(
             self.uid, self.name, self.number, time, self.reason,
         ))
 
 
-callone = Call(1, "Charlie", "301-124-3364", "04:00pm", "Needs tech support")
+callone = Call("Charlie", "301-124-3364", "04:00pm", "Needs tech support")
+callone.display()
+print("")
 calltwo = Call(
-    2, "Miss Mary", "230-434-3433", "05:50pm", "question about account")
+    "Miss Mary", "230-434-3433", "05:50pm", "question about account")
 print("")
 
 
@@ -57,7 +60,7 @@ class CallCenter():
 callcenter = CallCenter([callone, calltwo])
 callcenter.info()
 print("")
-callcenter.add(Call(3, "SlackJaw", "125-242-1243", "05:55pm", "car trouble"))
+callcenter.add(Call("SlackJaw", "125-242-1243", "05:55pm", "car trouble"))
 callcenter.info()
 print("")
 callcenter.remove()
@@ -66,9 +69,9 @@ print("")
 callcenter.remove_by_number("125-242-1243")
 callcenter.info()
 print("")
-callcenter.add(Call(5, "Jakson", "232-241-2195", "01:00pm", "tractor trouble"))
+callcenter.add(Call("Jakson", "232-241-2195", "01:00pm", "tractor trouble"))
 callcenter.add(
-    Call(32, "Jakie", "234-135-2353", "5:00am", "Locked keys in car"))
+    Call("Jakie", "234-135-2353", "5:00am", "Locked keys in car"))
 callcenter.info()
 print("")
 callcenter.sort_calls()
