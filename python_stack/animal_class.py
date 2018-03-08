@@ -36,6 +36,7 @@ class Dragon(Animal):
         super(Dragon, self).display_health()
         print("I am a dragon")
 
+
 print("AMY")
 amy = Animal("Amy", health=34)
 amy.walk().walk().walk().run().run().display_health()
