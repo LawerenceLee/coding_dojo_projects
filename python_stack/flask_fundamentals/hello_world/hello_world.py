@@ -5,7 +5,7 @@ PORT = 8000
 HOST = "0.0.0.0"
 
 app = Flask(__name__)
-app.secret_key = "a;skdfa. skqn23rqaus08g35iybpweb[asjdf;asdvdasdfasdasdfqwerd"
+app.secret_key = "a;skdfa.dfskqn23rqaus08g35iybpweb[asjdf;asasdfasdasdfqwerd"
 
 
 @app.route('/')
