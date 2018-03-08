@@ -64,7 +64,8 @@ class CallCenter():
 callcenter = CallCenter([callone, calltwo])
 callcenter.info()
 print("")
-callcenter.add(Call("SlackJaw", "125-242-1243", "05:55pm", "car trouble")).info()
+callcenter.add(
+    Call("SlackJaw", "125-242-1243", "05:55pm", "car trouble")).info()
 print("")
 callcenter.remove().info()
 print("")
