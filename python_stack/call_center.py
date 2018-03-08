@@ -39,7 +39,7 @@ class CallCenter():
         self.calls_lst.pop(0)
         self.queue_size -= 1
         return self
-    
+
     def remove_by_number(self, number):
         for call in self.calls_lst:
             if call.number == number:
