@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script>
+        $(document).ready(function(){
+            $(document).on('click', 'button', function(){
+                $('#images h1').html("You Choose")  // Resets h1 after each click
+                $('#images').children().hide()  // Hides all Images after ea click
+                var color = "#" + $(this).text();  // Grab text from buttom pressed & add hash to create ID str
+                $(color).show()                    // Show the image w/ id stored in color
+                $('#images h1').append(" " + $(color).attr("alt") + "!")  // grab alt attr from img and add to h1
+                $('#images h1').show()             // Make h1 inside images div visible
+            });
+        });
+    </script>
+    <!-- <script src="{{ url_for('static', filename='js/ninjas.js') }}"></script> -->
+    <title>Document</title>
+    <style>
+        img {
+            height: 500px;
+        }
+
+        h1, img {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id=images>
+        <h1>You Choose</h1>
+        <img id="orange" src="{{ url_for('static', filename='img/michelangelo.jpg') }}" alt="Michelangelo">
+        <img id="purple" src="{{ url_for('static', filename='img/donatello.jpg') }}" alt="Donatello">
+        <img id="blue" src="{{ url_for('static', filename='img/leonardo.jpg') }}" alt="Leonardo">
+        <img id="red" src="{{ url_for('static', filename='img/raphael.jpg') }}" alt="Raphael">
+        <img id="april" src="{{ url_for('static', filename='img/notapril.jpg') }}" alt="Not April">
+    </div>
+    <div id="buttons">
+        <button class=".btn">red</button>
+        <button class=".btn">blue</button>
+        <button class=".btn">orange</button>
+        <button class=".btn">purple</button>
+    </div>
+</body>
+</html>
