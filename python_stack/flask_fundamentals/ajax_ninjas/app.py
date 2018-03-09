@@ -1,5 +1,4 @@
-from flask import (Flask, request, url_for, render_template, flash, redirect,
-                   jsonify)
+from flask import (Flask, request, url_for, render_template, jsonify)
 
 
 DEBUG = True
@@ -8,38 +7,34 @@ HOST = "0.0.0.0"
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
-
-
-@app.route('/data_return', methods=['POST'])
-def data_return():
-    ninja_dict = {
-        'blue': {
-            "name": "Leonardo",
-            "url": url_for('static', filename='img/leonardo.jpg')},
-        'purple': {
-            "name": "Donatello",
-            "url": url_for('static', filename='img/donatello.jpg')},
-        'orange': {
-            "name": "Michelangelo",
-            "url": url_for('static', filename='img/michelangelo.jpg')},
-        'red': {
-            "name": "Rapheal",
-            "url": url_for('static', filename='img/raphael.jpg')}
-    }
-    color = request.form['color']
-    try:
-        name_and_url = ninja_dict[color]
-    except KeyError:
-        return jsonify(
-            {"april_url": url_for("static", filename="img/notapril.jpg")})
+    if request.form:
+        ninja_dict = {
+            'blue': {
+                "name": "Leonardo",
+                "url": url_for('static', filename='img/leonardo.jpg')},
+            'purple': {
+                "name": "Donatello",
+                "url": url_for('static', filename='img/donatello.jpg')},
+            'orange': {
+                "name": "Michelangelo",
+                "url": url_for('static', filename='img/michelangelo.jpg')},
+            'red': {
+                "name": "Raphael",
+                "url": url_for('static', filename='img/raphael.jpg')}
+        }
+        color = request.form['color']
+        try:
+            name_and_url = ninja_dict[color]
+        except KeyError:
+            return jsonify(
+                {"april_url": url_for("static", filename="img/notapril.jpg")})
+        else:
+            return jsonify(name_and_url)
     else:
-        return jsonify(name_and_url)
+        return render_template('index.html')
 
-
-# Ajax works, just need to set up logic to take a color and return a turtle's img and name
 
 # learned info from : https://www.youtube.com/watch?v=IZWtHsM3Y5A
 

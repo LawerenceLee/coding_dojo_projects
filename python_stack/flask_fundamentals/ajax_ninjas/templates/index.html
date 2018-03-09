@@ -2,63 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-    <script>
-        $(document).ready(function(){
-
-            $(document).on('click', 'button', function(){
-
-                if ($(this).text() === 'Enter'){
-                    var color_pick = $("#buttons > input").val()
-                    console.log(color_pick)
-                }
-                else {
-                    var color_pick = $(this).text()
-                }
-                $.ajax({
-                    data : {
-                         color : color_pick,
-                    },
-                    type : 'POST',
-                    url : '/data_return',
-            })
-            .done(function(data) {
-
-                $('#images').html("")
-                if (data.april_url) {
-                    $('#images').append("<h1>There's no ninja in that color!</h1>")
-                    $('#images').append('<img src="' + data.april_url + '" alt="April">')
-                }
-                else {
-                    $('#images').append("<h1>You chose " + data.name + "!</h1>")
-                    $("#images").append('<img src="' + data.url + '" alt="' + data.name + '">')
-                }
-            });
-            });
-        });
-    </script>
     <script src="{{ url_for('static', filename='js/ninjas.js') }}"></script>
     <title>Document</title>
     <style>
-        body {
-            padding: 180px;
-        }
-        img {
-            height: 500px;
-        }
-
-        h1, img {
-        }
-
-        button {
-            margin: 40px
-        }
     </style>
 </head>
 <body>
-    <div id=images>
-        <!-- <h1>You Choosae</h1> -->
-    </div>
+    <div id=images></div>
     <div id="buttons">
         <button>red</button>
         <button>blue</button>
