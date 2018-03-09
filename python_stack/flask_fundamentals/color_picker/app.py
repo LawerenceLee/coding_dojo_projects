@@ -15,11 +15,9 @@ def index():
         "blue": 255,
     }
     if request.form:
-        print(request.values)
         colors['red'] = request.values["red"]
         colors['green'] = request.values["green"]
         colors['blue'] = request.values["blue"]
-        print(colors)
     return render_template('index.html', colors=colors)
 
 
