@@ -25,7 +25,7 @@ def add_two():
 
 @app.route('/reset')
 def reset():
-    session['counter'] = -1
+    session['counter'] = 1
     return redirect('/')
 
 
