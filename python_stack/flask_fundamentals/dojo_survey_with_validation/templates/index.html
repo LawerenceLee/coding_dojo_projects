@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <title>Dojo Survey w/ Validation</title>
+    <link href="{{ url_for('static', filename='css/dojo_survey.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div id="flash">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <form action="/result" method="post">
+        <label for="name">Your name:</label>
+        <input type='text' name='name' id='name' value="{{ request.form.name }}">
+        <br><br>
+        <label for="dojo_location">Dojo Location:</label>
+        <select name="dojo_location" id="dojo_location">
+            <option value="San Jose">San Jose</option>
+            <option value="Seattle">Seattle</option>
+            <option value="Los Angeles">Los Angeles</option>
+            <option value="Dallas">Dallas</option>
+            <option value="District of Columbia">District of Columbia</option>
+            <option value="Chicago">Chicago</option>
+            <option value="Tulsa">Tulsa</option> 
+        </select>
+        <br><br>
+        <label for="location">Location</label>
+        <select name="favorite_language" id="favorite_language">
+            <option value="Python">Python</option>
+            <option value="Ruby">Ruby</option>
+            <option value="Java">Java</option>
+            <option value="PHP">PHP</option>
+        </select>
+        <br><br>
+        <label for="comment">Comment (120 Characters Only):</label>
+        <br><br>
+        <textarea name="comment" id="comment" cols="30" rows="10">{{ request.form.comment }}</textarea>
+        <br><br>
+        <button type="submit">Button</button>
+    </form>
+</body>
+</html>

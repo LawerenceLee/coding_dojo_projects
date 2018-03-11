@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Results</title>
+</head>
+<body>
+    <h1>Submitted Info</h1>
+    <p>Name: {{form.name}}</p>
+    <p>Dojo Location: {{form.dojo_location}}</p>
+    <p>Favorite Language: {{form.favorite_language}}</p>
+    <p>Comment: {{form.comment}}</p>
+    <br>
+    <br>
+    <a href="{{ url_for('index') }}">Go Back</a>
+</body>
+</html>
