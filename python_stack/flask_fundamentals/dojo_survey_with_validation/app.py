@@ -25,7 +25,7 @@ def result():
         error = True
 
     if error:
-        return render_template("index.html", )
+        return render_template("index.html")
     return render_template("result.html", form=request.form)
 
 
