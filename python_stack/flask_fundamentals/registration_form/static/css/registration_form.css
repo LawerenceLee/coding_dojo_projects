@@ -16,3 +16,15 @@ form li {
     list-style: none;
     margin: 10px 0 10px 0;
 }
+
+#flash p {
+    margin: 20px 80px;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}

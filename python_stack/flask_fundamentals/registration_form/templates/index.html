@@ -5,7 +5,16 @@
     <link href="{{ url_for('static', filename='css/registration_form.css') }}" rel="stylesheet">
 </head>
 <body>
-    <form action="/validate" method="post">
+    <div id="flash">
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+            {% for category, message in messages %}
+                <p class="{{ category }}">{{message}}</p>
+            {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <form action="/" method="post">
         <ul>
             <li>
                 <label for="email">Email</label>
