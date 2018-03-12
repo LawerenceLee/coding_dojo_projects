@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <title>PROJECT DEMO</title>
+    <link href="{{ url_for('static', filename='css/registration_form.css') }}" rel="stylesheet">
+</head>
+<body>
+    <form action="/validate" method="post">
+        <ul>
+            <li>
+                <label for="email">Email</label>
+                <input type="text" name="email" value="{{ old_form.email }}">
+            </li>
+            <li>
+                <label for="first_name">First Name:</label>
+                <input type="text" name="first_name" value="{{ old_form.first_name }}">
+            </li>
+            <li>
+                <label for="last_name">Last Name:</label>
+                <input type="text" name="last_name" value="{{ old_form.last_name }}">
+            </li>
+            <li>
+                <label for="birthdate">Birthdate (YYYY/MM/DD):</label>
+                <input type="text" name="birthdate" value="{{ old_form.birthdate }}">
+            </li>
+            <li>
+                <label for="password">Password:</label>
+                <input type="password" name="password">
+            </li>
+            <li>
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" name="confirm_password">
+            </li>
+            <input type="submit" value="Submit">
+        </ul>
+    </form>
+</body>
+</html>
