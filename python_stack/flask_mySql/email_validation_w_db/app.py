@@ -16,19 +16,23 @@ app.secret_key = "asjdi0as;o97*(*&)(Uhgpoifpjaspoufasmljdhfoguspd9&%("
 @app.route('/', methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        if re.findall(
-                r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)",
-                request.form["email"]):
-            Email.create(
-                email=request.form["email"],
-                timestamp=datetime.datetime.now(),
-            )
-            flash("The email address you entered ({}) \
-            \nis a VALID email address! Thank you!".format(
-                request.form['email']))
-            return redirect("/success")
-        else:
-            flash("Email is not valid!")
+        for email in Email.select():
+            if email != request.form['email'] and re.findall(
+                        r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)",
+                        request.form["email"]):
+                    
+                    Email.create(
+                        email=request.form["email"],
+                        timestamp=datetime.datetime.now(),
+                    )
+
+                    flash("The email address you entered ({}) \
+                    \nis a VALID email address! Thank you!".format(
+                        request.form['email']))
+                        
+                    return redirect("/success")
+            else:
+                flash("Email is not valid!")
 
     return render_template('index.html')
 
