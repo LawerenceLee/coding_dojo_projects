@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Success</title>
+    <link href="{{ url_for('static', filename='css/email_validation_w_db.css') }}" rel="stylesheet">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages: %}
+            {% for message in messages: %}
+                <p id="green">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <h1><u>Email Addresses Entered:</u></h1>
+    {% for email in emails %}
+        <p>{{ email.email }} {{ email.timestamp.strftime("%m/%d/%Y %I:%M%p") }}</p>
+    {% endfor %}
+</body>
+</html>
