@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+    <title>Full Friends</title>
+    <link href="{{ url_for('static', filename='css/full_friends.css') }}" rel="stylesheet">
+</head>
+<body>
+    <h1>Friends:</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Friends Since</th>
+                <th>Year</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for friend in friends: %}
+            <tr>
+                <td>{{ friend.name }}</td>
+                <td>{{ friend.age }}</td>
+                <td>{{ friend.friends_since }}</td>
+                <td>{{ friend.year }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <h2>Add a Friend</h2>
+    <form action="/" method="post">
+        <ul>
+            <li>
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name">
+            </li>
+            <li>
+                <label for="age">Age:</label>
+                <input type="text" name="age" id="age">
+            </li>
+            <li><input type="submit" value="Submit"></li>
+        </ul>
+    </form>
+</body>
+</html>
