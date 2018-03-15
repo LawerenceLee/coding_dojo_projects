@@ -1,6 +1,6 @@
 import datetime
 
-from flask import (Flask, render_template, request)
+from flask import (Flask, render_template, request, redirect)
 
 from mysqlconnection import MySQLConnector
 
@@ -21,6 +21,7 @@ def index():
         }
         insert = "INSERT INTO friends (name, age, friends_since) VALUES (:name, :age, :friends_since)"
         mysql.query_db(insert, data)
+        return redirect("/")
 
     query = "SELECT * FROM friends"
     friends = mysql.query_db(query)
