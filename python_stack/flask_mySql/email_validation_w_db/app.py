@@ -44,6 +44,13 @@ def success():
     return render_template("success.html", emails=emails)
 
 
+@app.route("/remove/<email>")
+def remove(email):
+    Email.delete().where(Email.email == email).execute()
+    return redirect("/success")
+
+
+
 if __name__ == "__main__":
     initialize()
     app.run(debug=DEBUG, host=HOST, port=PORT)

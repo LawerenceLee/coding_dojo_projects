@@ -14,7 +14,10 @@
     {% endwith %}
     <h1><u>Email Addresses Entered:</u></h1>
     {% for email in emails %}
-        <p>{{ email.email }} {{ email.timestamp.strftime("%m/%d/%Y %I:%M%p") }}</p>
+        <div>
+            <p>{{ email.email }} {{ email.timestamp.strftime("%m/%d/%Y %I:%M%p") }}
+            <a class="delete" href="/remove/{{ email.email }}">DELETE</a></p>
+        </div>
     {% endfor %}
 </body>
 </html>
