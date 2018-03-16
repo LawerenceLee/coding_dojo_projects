@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <link href="{{ url_for('static', filename='css/registration_form.css') }}" rel="stylesheet">
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <p class="{{ category }}">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <a href="/">Register</a>
+    <form action="/login" method="post">
+        <ul>
+            <li>
+                <label for="email">Email</label>
+                <input type="text" name="email">
+            </li>
+            <li>
+                <label for="password">Password:</label>
+                <input type="password" name="password">
+            </li>
+            <li>
+                <input type="submit" value="Submit">
+            </li>
+        </ul>
+    </form>
+    {% if session['is_logged_in'] == True %}
+    <a href="https://www.youtube.com/watch?v=lt-udg9zQSE">Enter The Machine</a>
+    {% endif %}
+</body>
+</html>
