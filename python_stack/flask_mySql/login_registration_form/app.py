@@ -50,11 +50,16 @@ def login():
             if user.password == crypt_passwd:
                 session['is_logged_in'] = True
                 flash("Successful Login", "success")
-                return redirect("/login")
+                return redirect("/success")
         flash("Either Email or Password is not correct", "error")
         redirect("/login")
 
     return render_template("/login.html")
+
+
+@app.route("/success")
+def success():
+    return render_template("success.html")
 
 
 if __name__ == "__main__":
