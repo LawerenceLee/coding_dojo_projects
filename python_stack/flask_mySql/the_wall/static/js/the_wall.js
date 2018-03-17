@@ -8,17 +8,17 @@ $(document).ready(function(){
                 type: "POST",
                 url: "/ajax_message",
             }).done(function(data){
-                var message = '<div class="message_wrapper"><h3 class="message_info">' + data.message_info
-                message += '</h3><p class="message">' + data.message + '</p></div>'
+                var message = '<div class="message_wrapper"><div class="message_block"><h3 class="message_info">' + data.message_info
+                message += '</h3><p class="message">' + data.message + '</p></div><div class="comments_wrapper"></div>'
                 message += '<div class="commenting"><h3>Post a comment</h2>'
                 message += '<textarea name="comment" cols="100" rows="3"'
                 message += 'message-id="' + data.message_id +'"'
-                message += '></textarea><button>Post a comment</button></div>'
+                message += '></textarea><button>Post a comment</button></div></div>'
                 $("#messages_box").prepend(message)
             });
         }
         else if ($(this).text() == "Post a comment" && $(".commenting>textarea").val()) {
-            
+
             var comment_txt = $(".commenting>textarea").val()
             var message_identifier = $(".commenting>textarea").attr("message-id")
             $(".commenting>textarea").val("")

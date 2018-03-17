@@ -17,16 +17,22 @@
         {% if messages %}
             {% for message in messages %}
                 <div class="message_wrapper">
-                    <h3 class="message_info">
-                        {{ message['message_info'] }}
-                    </h3>
-                    <p class="message">{{ message['message_content'] }}</p>
-                    {% for comment in message['comment_list'] %}
-                        <h4 class="comment_info" message-id="{{ comment['comment_id'] }}">
-                            {{ comment['comment_info'] }}
-                        </h4>
-                        <p class="comment">{{ comment['comment_content'] }}</p>
-                    {% endfor %}
+                    <div class="message_block">
+                        <h3 class="message_info">
+                            {{ message['message_info'] }}
+                        </h3>
+                        <p class="message">{{ message['message_content'] }}</p>
+                    </div>
+                    <div class="comments_wrapper">
+                        {% for comment in message['comment_list'] %}
+                            <div class="comment_block">
+                                <h4 class="comment_info" message-id="{{ comment['comment_id'] }}">
+                                    {{ comment['comment_info'] }}
+                                </h4>
+                                <p class="comment">{{ comment['comment_content'] }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
                     <div class="commenting">
                         <h3>Post a comment</h2>
                         <textarea name="comment" cols="100" rows="3"  message-id="{{ message['message_id'] }}"></textarea>
