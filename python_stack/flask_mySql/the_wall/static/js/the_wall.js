@@ -28,9 +28,9 @@ $(document).ready(function(){
                 type: "POST",
                 url: "/ajax_comment",
             }).done(function(data){
-                var comment = '<h4 class="comment_info">' + data.comment_info + "</h4>"
-                comment += '<p class="comment">'+ data.comment + '</p>'
-                $(".commenting").before(comment)
+                var comment = '<div class="comment_block"><h4 class="comment_info">' + data.comment_info + "</h4>"
+                comment += '<p class="comment">'+ data.comment + '</p></div>'
+                $("#"+message_identifier).append(comment)
             });
         }
     });
