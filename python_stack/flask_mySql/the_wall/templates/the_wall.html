@@ -16,19 +16,20 @@
     <div id="messages_box">
         {% if messages %}
             {% for message in messages %}
-                <div class="message_wrapper">
+                <div class="message_wrapper" message-id="{{ message['message_id'] }}">
                     <div class="message_block">
-                        <h3 class="message_info">
-                            {{ message['message_info'] }}
-                        </h3>
+                        {% if message['message_deleteable'] %}
+                            <h3 class="message_info deletable">{{ message['message_info'] }}</h3>
+                            <button class="deleteable delete_button" message-id="{{ message['message_id'] }}">DELETE</button>
+                        {% else %}
+                            <h3 class="message_info">{{ message['message_info'] }}</h3>
+                        {% endif %}
                         <p class="message">{{ message['message_content'] }}</p>
                     </div>
                     <div class="comments_wrapper" id="{{ message['message_id'] }}">
                         {% for comment in message['comment_list'] %}
                             <div class="comment_block">
-                                <h4 class="comment_info">
-                                    {{ comment['comment_info'] }}
-                                </h4>
+                                <h4 class="comment_info">{{ comment['comment_info'] }}</h4>
                                 <p class="comment">{{ comment['comment_content'] }}</p>
                             </div>
                         {% endfor %}

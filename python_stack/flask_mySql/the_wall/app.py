@@ -1,4 +1,5 @@
 import binascii
+import datetime
 from hashlib import md5
 import os
 
@@ -6,7 +7,7 @@ from flask import (Flask, render_template, flash, session, request,
                    redirect, jsonify)
 
 from form_validation import FormValidation
-from models import initialize, User, Message, Comment, RawQuery, db
+from models import initialize, User, Message, Comment, db
 
 
 DEBUG = True
@@ -14,6 +15,12 @@ PORT = 8000
 HOST = "0.0.0.0"
 app = Flask(__name__)
 app.secret_key = "ariqpw008^(*%(^TUHUGTUDFOITFI&&oy69up9(*^obiyVI-oju"
+
+
+@app.route("/delete_message", methods=["GET", "POST"])
+def delete_message():
+    Message.delete().where(Message.id == request.form['message_id']).execute()
+    return jsonify(True)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -85,8 +92,12 @@ def the_wall():
             "message_id": message[0],
             "message_info": message_info,
             "message_content": message[4],
+            "message_deleteable": False,
             "comment_list": []
         }
+        # Change "message_deletable value if message is not older that 30min"
+        if message[3] > datetime.datetime.now() - datetime.timedelta(minutes=30):
+            message_dict["message_deleteable"] = True
         # Grab all the comments made on message and their creators
         tuple_comments = db.execute_sql(
             "SELECT comment.id, user.first_name, user.last_name, \
@@ -142,6 +153,7 @@ def ajax_message():
         "message_id": message.id,
     }
     return jsonify(message_dict)
+
 
 
 if __name__ == "__main__":
