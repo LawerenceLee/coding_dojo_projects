@@ -22,14 +22,14 @@
                     </h3>
                     <p class="message">{{ message['message_content'] }}</p>
                     {% for comment in message['comment_list'] %}
-                        <h4 class="comment_info" value="{{ comment['comment_id'] }}">
+                        <h4 class="comment_info" message-id="{{ comment['comment_id'] }}">
                             {{ comment['comment_info'] }}
                         </h4>
                         <p class="comment">{{ comment['comment_content'] }}</p>
                     {% endfor %}
                     <div class="commenting">
                         <h3>Post a comment</h2>
-                        <textarea name="comment" id="message" cols="100" rows="3"  message-id="{{ message['message_id'] }}"></textarea>
+                        <textarea name="comment" cols="100" rows="3"  message-id="{{ message['message_id'] }}"></textarea>
                         <button>Post a comment</button>
                     </div> 
                 </div>
