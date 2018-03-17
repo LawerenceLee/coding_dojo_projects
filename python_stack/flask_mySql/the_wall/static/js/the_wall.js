@@ -12,16 +12,16 @@ $(document).ready(function(){
                 message += '</h3><p class="message">' + data.message + '</p></div><div class="comments_wrapper"></div>'
                 message += '<div class="commenting"><h3>Post a comment</h2>'
                 message += '<textarea name="comment" cols="100" rows="3"'
-                message += 'message-id="' + data.message_id +'"'
                 message += '></textarea><button>Post a comment</button></div></div>'
                 $("#messages_box").prepend(message)
             });
         }
-        else if ($(this).text() == "Post a comment" && $(".commenting>textarea").val()) {
+        else if ($(this).text() == "Post a comment" && $(this).siblings("textarea").val()) {
 
-            var comment_txt = $(".commenting>textarea").val()
-            var message_identifier = $(".commenting>textarea").attr("message-id")
-            $(".commenting>textarea").val("")
+            var comment_txt = $(this).siblings("textarea").val()
+            console.log(comment_txt)
+            var message_identifier = $(this).attr("message-id")
+            $(this).siblings("textarea").val("")
 
             $.ajax({
                 data : {comment_text : comment_txt, message_id : message_identifier},
