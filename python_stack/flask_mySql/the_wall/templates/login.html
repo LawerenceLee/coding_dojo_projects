@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ super() }}Login{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<form id="login" action="/login" method="post">
+    <ul>
+        <li>
+            <label for="email">Email</label>
+            <input type="text" name="email">
+        </li>
+        <li>
+            <label for="password">Password:</label>
+            <input type="password" name="password">
+        </li>
+        <li>
+            <input type="submit" value="Submit">
+        </li>
+    </ul>
+</form>
+{% endblock %}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <title>The Wall | {% block title %}{% endblock %}</title>
+    <link href="{{ url_for('static', filename='css/registration_form.css') }}" rel="stylesheet">
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <h1>CodingDojo Wall</h1>
+        {% if session["is_logged_in"] == True %}
+            <a class="float_right logged_in" href="/log_off">log_off</a>
+            <p class="float_right logged_in">Welcome {{ session['first_name'] }}</p>
+        {% else %}
+            <a class="float_right prior_to_login" href="/">register</a>
+            <a class="float_right prior_to_login" href="/login">login</a>
+            <p class="float_right prior_to_login">Welcome</p>
+        {% endif %}
+    </header>
+    <main>
+        <div id="flash">
+            {% with messages = get_flashed_messages(with_categories=True) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <p class="{{ category }}">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

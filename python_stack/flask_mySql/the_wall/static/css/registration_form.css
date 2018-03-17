@@ -1,0 +1,155 @@
+* {
+    margin: 0px;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+header {
+    background-color: white;
+    border-bottom: 3px solid black;
+    padding: 10px;
+    margin: 0 auto;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+header p,
+header a {
+    font-size: 20px;
+}
+header h1 {
+    display: inline-block;
+    font-size: 40px;
+}
+
+.float_right {
+    float: right;
+    display: block;
+    text-decoration: none;
+}
+.prior_to_login {
+    color: #2c649f;
+    margin: 10px 30px 0 0;
+}
+.logged_in {
+    color: #2c649f;
+    margin: 10px 30px 0 0;
+}
+
+
+
+main {
+    margin-top: 50px;
+    padding: 60px 80px;
+}
+
+
+#login,
+#register {
+    margin: 0;
+    margin:10px auto;
+    max-width: 400px;
+    padding: 20px 12px 10px 20px;
+    font: 22px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+#login li,
+#register li {
+    padding: 0;
+    display: block;
+    list-style: none;
+    margin: 10px 0 10px 0;
+}
+#login input,
+#register input {
+    padding: 3px;
+    font-size: 20px;
+}
+
+#flash {
+    margin-top: 30px;
+}
+#flash p {
+    margin: 10px 80px;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+#posting {
+    padding: 0;
+    display: block;
+}
+#posting h2 {
+    font-size: 30px;
+}
+#posting textarea {
+    font-size: 26px;
+    margin-top: 10px;
+    resize: none;
+    width: 99%;
+    border: 3px solid black;
+    padding: 5px;
+}
+#posting button {
+    background-color: #3778e4;
+    color: white;
+    padding: 5px 10px;
+    font-size: 26px;
+    border: 3px solid black;
+    display: block;
+    margin: 10px 0 0 auto;
+}
+
+#messages_box {
+    margin: 50px 0 0 0;
+}
+.message_wrapper {
+    margin: 50px 0;
+}
+.message_info {
+    font-size: 22px;
+}
+.message {
+    margin: 10px 0 0 40px;
+    font-size: 20px;
+}
+
+#commenting {
+    margin-top: 40px;
+    padding: 0;
+    display: block;
+}
+#commenting h3 {
+    font-size: 22px;
+}
+#commenting textarea {
+    font-size: 26px;
+    margin-top: 10px;
+    resize: none;
+    width: 99%;
+    border: 3px solid black;
+    padding: 5px;
+}
+#commenting button {
+    background-color: #269e0f;
+    color: white;
+    padding: 5px 10px;
+    font-size: 22px;
+    border: 3px solid black;
+    display: block;
+    margin: 10px 0 0 auto;
+}
+
+.comment_info {
+    font-size: 18px;
+    margin: 20px 0 0 60px;
+}
+.comment {
+    margin: 20px 0 0 60px;
+    font-size: 16px;
+}
