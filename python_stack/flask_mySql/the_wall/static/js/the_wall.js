@@ -17,10 +17,10 @@ $(document).ready(function(){
                 $("#messages_box").prepend(message)
             });
         }
-        else if ($(this).text() == "Post a comment" && $("#commenting>textarea").val()) {
-            var comment_txt = $("#commenting>textarea").val()
-            var message_identifier = $("#commenting>textarea").attr("message-id")
-            $("#commenting>textarea").val("")
+        else if ($(this).text() == "Post a comment" && $(".commenting>textarea").val()) {
+            var comment_txt = $(".commenting>textarea").val()
+            var message_identifier = $(".commenting>textarea").attr("message-id")
+            $(".commenting>textarea").val("")
             $.ajax({
                 data : {comment_text : comment_txt, message_id : message_identifier},
                 type: "POST",
@@ -28,7 +28,7 @@ $(document).ready(function(){
             }).done(function(data){
                 var comment = '<h4 class="comment_info">' + data.comment_info + "</h4>"
                 comment += '<p class="comment">'+ data.comment + '</p>'
-                $("#commenting").before(comment)
+                $(".commenting").before(comment)
             });
         }
     });
