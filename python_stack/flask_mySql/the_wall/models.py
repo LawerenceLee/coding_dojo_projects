@@ -1,7 +1,7 @@
 import datetime
 
 from peewee import (CharField, MySQLDatabase, Model, DateTimeField,
-                    TextField, ForeignKeyField, DateField, RawQuery)
+                    TextField, ForeignKeyField, DateField)
 
 
 db = MySQLDatabase("the_wall.db", user="root", password="root",
@@ -40,7 +40,6 @@ class Comment(BaseModel):
     updated_at = DateTimeField(default=datetime.datetime.now)
 
 
-@db.connection_context()
 def initialize():
     db.create_tables([User, Message, Comment], safe=True)
 

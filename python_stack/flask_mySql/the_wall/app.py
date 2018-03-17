@@ -155,7 +155,6 @@ def ajax_message():
     return jsonify(message_dict)
 
 
-
 if __name__ == "__main__":
     initialize()
     app.run(debug=DEBUG, host=HOST, port=PORT)
