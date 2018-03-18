@@ -41,7 +41,9 @@ class Comment(BaseModel):
 
 
 def initialize():
+    db.connect
     db.create_tables([User, Message, Comment], safe=True)
+    db.close()
 
 
 if __name__ == "__main__":
