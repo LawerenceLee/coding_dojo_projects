@@ -1,1 +1,54 @@
-/* CSS for the Project Demo project */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+body {
+    padding: 60px 40px;
+}
+body > a {
+    margin-top: 10px;
+}
+h1 {
+    margin-bottom: 20px;
+}
+ul {
+    list-style-type: none;
+}
+li {
+    margin: 10px 0;
+}
+input {
+    display: block
+}
+input[type=submit] {
+    margin-bottom: 20px;
+}
+
+#users {
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#users td, #users th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#users tr:nth-child(even){background-color: #f2f2f2;}
+
+#users tr:hover {background-color: #ddd;}
+
+#users th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+#user_info {
+    margin-bottom: 20px;
+}

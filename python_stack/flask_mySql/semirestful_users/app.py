@@ -7,6 +7,7 @@ DEBUG = True
 PORT = 8000
 HOST = "0.0.0.0"
 app = Flask(__name__)
+app.secret_key = "ahpsvhpih78y986yG&T*Y(^R*YI(&&F*OY*^OUB*T*GHBUTF"
 
 
 @app.before_request
@@ -22,10 +23,11 @@ def _db_close(exe):
 
 @app.route('/users')
 def index():
-    return render_template('index.html')
+    users = User.select()
+    return render_template('index.html', users=users)
 
 
-@app.route('/users/create', method="POST")
+@app.route('/users/create', methods=["POST"])
 @app.route('/users/new')
 def new_user():
     if request.method == "POST":
@@ -34,34 +36,39 @@ def new_user():
             last_name=request.form['last_name'],
             email=request.form['email'],
         )
-        user_id = User.select(User.id).where(
+        user = User.get(
             User.email == request.form['email']
             )
-        return redirect("/users/{}".format(user_id))
+        flash("Successfully Created User")
+        return redirect("/users/{}".format(user.id))
     return render_template('create_user.html')
 
 
-@app.route('/users/update')
-def update():
-    return render_template('update.html')
-
-
-@app.route('/users/<id>/edit', methods=["GET", "POST"])
-@app.route('/users/<id>/destroy')
-def alter_user(id):
+@app.route('/users/<int:id>/edit', methods=["GET", "POST"])
+def update(id):
     user = User.get_by_id(id)
+    return render_template('update.html', user=user)
+
+
+@app.route('/users/update', methods=['POST'])
+@app.route('/users/<int:id>/delete')
+def alter_user(id=None):
     if request.method == "POST":
+        user = User.get_by_id(request.form["user_id"])
         user.first_name = request.form['first_name']
         user.last_name = request.form['last_name']
         user.email = request.form['email']
         user.save()
-        return redirect("/users/{}".format(id))
-    
+        flash("Successfully Made the Changes You asked for")
+        return redirect("/users/{}".format(request.form["user_id"]))
+
+    user = User.get_by_id(id)
     user.delete_instance()
+    flash("Deleted User")
     return redirect("/users")
 
 
-@app.route('/users/<id>')
+@app.route('/users/<int:id>')
 def user_by_id(id):
     user = User.get_by_id(id)
     return render_template("user.html", user=user)
