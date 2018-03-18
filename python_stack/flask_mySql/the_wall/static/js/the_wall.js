@@ -15,14 +15,13 @@ $(document).ready(function(){
                 message += 'DELETE</button><p class="message">' + data.message
                 message += '</p></div><div class="comments_wrapper"></div><div class="commenting"><h3>Post a comment</h2>'
                 message += '<textarea name="comment" cols="100" rows="1"'
-                message += '></textarea><button>Post a comment</button></div></div>'
+                message += '></textarea><button message-id="' + data.message_id +'">Post a comment</button></div></div>'
                 $("#messages_box").prepend(message)
             });
         }
         else if ($(this).text() == "Post a comment" && $(this).siblings("textarea").val()) {
 
             var comment_txt = $(this).siblings("textarea").val()
-            console.log(comment_txt)
             var message_identifier = $(this).attr("message-id")
             $(this).siblings("textarea").val("")
 

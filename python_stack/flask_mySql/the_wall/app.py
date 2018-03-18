@@ -19,6 +19,8 @@ app.secret_key = "ariqpw008^(*%(^TUHUGTUDFOITFI&&oy69up9(*^obiyVI-oju"
 
 @app.route("/delete_message", methods=["GET", "POST"])
 def delete_message():
+    Comment.delete().where(
+        Comment.message_id == request.form['message_id']).execute()
     Message.delete().where(Message.id == request.form['message_id']).execute()
     return jsonify(True)
 
