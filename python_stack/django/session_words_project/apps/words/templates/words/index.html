@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index</title>
+    <link rel="stylesheet" href="{% static 'words/css/style.css' %}">
+</head>
+<body>
+    <form method="POST" action="/session_words/process" id="add_word">
+        {% csrf_token %}
+        <h1>Add a new word</h1>
+        <input name="new_word" type="text">
+        <p>Choose Color</p>
+        <ul>
+            <li>
+                <input type="radio" name="color" id="red" value="red">
+                <label for="red">Red</label>
+            </li>
+            <li>
+                <input type="radio" name="color" id="green" value="green">
+                <label for="green">Green</label>
+            </li>
+            <li>
+                <input type="radio" name="color" id="blue" value="blue">
+                <label for="blue">Blue</label>
+            </li>
+            <li>
+                <input type="checkbox" name="big" id="big">
+                <label for="big">show in BIG fonts!</label>
+            </li>
+        </ul>
+        <input type="submit" value="Add to Session">
+    </form>
+    <form action="/session_words/clear_session" method="POST" id="word_list">
+        {% csrf_token %}
+        <input type="submit" value="Clear Session">
+    </form>
+    {% for word in request.session.words %}
+        <p class="{{ word.big }} {{ word.color }}">{{ word.word }}</p><p> - added on {{ word.time_date }}</p>
+    {% endfor %}
+</body>
+</html>
