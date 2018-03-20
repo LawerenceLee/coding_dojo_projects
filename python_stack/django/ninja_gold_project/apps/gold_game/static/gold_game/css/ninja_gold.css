@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body > p {
+    margin: 20px 0 0 10px;
+}
+p > span {
+    padding: 5px 10px;
+}
+#all_acts {
+    margin: 40px 10px;
+}
+.activities {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: top;
+    width: 158px;
+    height: 158px;
+    padding: 10px 15px;
+    text-align: center;
+}
+.activities > * {
+    margin-bottom: 30px;
+}
+
+#act_display {
+    height:200px;
+    width:600px;
+    padding: 10px;
+    overflow:auto;
+    margin: 5px 10px;
+}
+
+.border {
+    border: solid black 3px;
+}
