@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="{% static 'shopping_cart/css/style.css' %}">
+</head>
+<body>
+    <h1>Amadon Store</h1>
+    <table>
+        <thead>
+            <th>Item</th>
+            <th>Price</t>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            {% for item in request.session.items %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>${{ item.price }}</td>
+                    <td>
+                        <form action="/process" method="post">
+                            {% csrf_token %}
+                            <select name="quantity" id="quantity">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <input type="hidden" name="item_id" value="{{ item.id }}">
+                            <input type="submit" value="Buy!">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
