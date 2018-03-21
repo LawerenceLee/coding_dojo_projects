@@ -1,0 +1,16 @@
+{% extends "users/layout.html" %}
+
+{% block head %}
+{{ block.super }}
+{% endblock head %}
+{% block title %}{{ block.super }} | {% endblock title %}
+
+{% block content %}
+<div id="user_info">
+    <h1>User {{ user.id }}</h1>
+    <p>Full Name: {{ user.first_name }} {{ user.last_name }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Created at: {{ date_time }}</p>
+</div>
+<a class="inline_block" href="/users/{{ user.id }}/edit">Edit</a> | <a class="inline_block" href="/users/{{ user.id }}/delete">Delete</a>
+{% endblock content %}

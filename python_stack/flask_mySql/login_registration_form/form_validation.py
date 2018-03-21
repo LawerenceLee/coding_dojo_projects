@@ -4,6 +4,7 @@ import re
 
 class FormValidation(object):
     def __init__(self, form):
+        form = form.__dict__
         self.email = form['email'][0]
         self.first_name = form["first_name"][0]
         self.last_name = form["last_name"][0]

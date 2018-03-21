@@ -1,0 +1,29 @@
+{% extends "users/layout.html" %}
+
+{% block head %}
+{{ block.super }}
+{% endblock head %}
+{% block title %}{{ block.super }} | Create User{% endblock title %}
+
+{% block content %}
+    <h1>Add a new user</h1>
+    <form action="{% url 'users:create' %}" method="post">
+        {% csrf_token %}
+        <ul>
+            <li>
+                <label for="first_name">First Name:</label>
+                <input type="text" name="first_name" value="{{ request.session.past_form.first_name }}">
+            </li>
+            <li>
+                <label for="last_name">Last Name:</label>
+                <input type="text" name="last_name" value="{{ request.session.past_form.last_name }}">
+            </li>
+            <li>
+                <label for="email">Email:</label>
+                <input type="text" name="email" value="{{ request.session.past_form.email }}">
+            </li>
+            <input type="submit" value="Create"> 
+            <a href="{% url 'users:index' %}">Go Back</a>
+        </ul>
+    </form>
+{% endblock content %}
