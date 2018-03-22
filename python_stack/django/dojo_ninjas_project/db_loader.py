@@ -21,6 +21,7 @@ users = [['Jimmy', "Crouch", "barty_couch@gmail.com"], ["Jelly", "Bean", "jb@gma
 user1 = Users.objects.get(first_name="Jimmy")
 user2 = Users.objects.get(first_name="Jelly")
 user3 = Users.objects.get(first_name="JAckdon")
+print(user1)
 
 books = [
     ["Harry Potter and the Philosopher's Stone", " It is the first novel in the Harry Potter series and Rowling's debut novel, first published in 1997 by Bloomsbury.", user1, user1],

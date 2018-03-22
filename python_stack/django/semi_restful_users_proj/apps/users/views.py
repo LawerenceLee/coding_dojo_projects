@@ -36,7 +36,6 @@ def create_user(request):
         return redirect("/users/{}".format(user.id))
     else:
         for err in form.errors:
-            print(err)
             messages.error(request, err)
 
         request.session['past_form'] = request.POST
