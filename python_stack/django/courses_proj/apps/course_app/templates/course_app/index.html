@@ -1,0 +1,43 @@
+{% extends 'course_app/layout.html' %}
+{% block head %}{{ block.super }}{% endblock head %}
+{% block title %}{{ block.super }}Courses{% endblock title %}
+
+{% block content %}
+{{ block.super }}
+<h2>Add a new course</h2>
+<form action="/process_course" method="post">
+    {% csrf_token %}
+    <ul>
+        <li>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" value="{{ request.session.old_form.name }}">
+        </li>
+        <li>
+            <label for="desc">Description:</label><br>
+            <textarea name="desc" id="desc" cols="40" rows="4">{{ request.session.old_form.desc }}</textarea>
+        </li>
+    </ul>
+    <input type="submit" value="Add"> 
+</form>
+<h1>Courses</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Course Names</th>
+            <th>Description</th>
+            <th>Date Added</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for course in courses %}
+        <tr>
+            <td>{{ course.name }}</td>
+            <td>{{ course.desc }}</td>
+            <td>{{ course.created_at }}</td>
+            <td><a href="/destroy/{{ course.id }}">remove</a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

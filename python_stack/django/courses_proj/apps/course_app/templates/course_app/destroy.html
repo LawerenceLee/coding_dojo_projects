@@ -1,0 +1,14 @@
+{% extends 'course_app/layout.html' %}
+{% block head %}{{ block.super }}{% endblock head %}
+{% block title %}{{ block.super }}Destroy{% endblock title %}
+
+{% block content %}
+{{ block.super }}
+<h1>Are you sure you want to delete the folowing course?</h1>
+<p>Name: {{ course.name }}</p>
+<p>Description: {{ course.desc }}</p>
+<div class="inline">
+    <a href="/">No</a>
+    <a href="/process/{{ course.id }}" class="red-button">Yes! I want to delete this</a> 
+</div>
+{% endblock content %}

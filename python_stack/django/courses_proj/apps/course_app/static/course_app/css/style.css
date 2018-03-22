@@ -1,0 +1,16 @@
+* {
+    padding: 0;
+    margin: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.red-button {
+    background-color:red;
+    color:white;
+    padding: 10px;
+}
+
+.error {
+    color: red;
+}
+
