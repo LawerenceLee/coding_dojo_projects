@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Success</title>
+    {% load static %}
+    <link href="{% static 'log_reg_app/css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+    {% if request.session.is_logged_in %}
+        <h1>Welcome To The Machine {{ request.session.first_name }}</h1>
+        <a href="https://www.youtube.com/watch?v=lt-udg9zQSE">Enter The Machine</a>
+    {% else %}
+        <h1>You didn't login you bastard!</h1>
+    {% endif %}
+</body>
+</html>

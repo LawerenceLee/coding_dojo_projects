@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    {% load static %}
+    <link href="{% static 'log_reg_app/css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    {% endif %}
+    <a href="/">Register</a>
+    <form action="/login" method="post">
+        {% csrf_token %}
+        <ul>
+            <li>
+                <label for="email">Email</label>
+                <input type="text" name="email">
+            </li>
+            <li>
+                <label for="password">Password:</label>
+                <input type="password" name="password">
+            </li>
+            <li>
+                <input type="submit" value="Submit">
+            </li>
+        </ul>
+    </form>
+    {% if request.session.is_logged_in %}
+    <a href="https://www.youtube.com/watch?v=lt-udg9zQSE">Enter The Machine</a>
+    {% endif %}
+</body>
+</html>
