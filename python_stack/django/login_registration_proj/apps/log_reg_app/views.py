@@ -51,7 +51,7 @@ def login(request):
         except User.DoesNotExist:
             messages.error(request, "Email does not exist")
             return redirect("/login")
-        if user:
+        else:
             passed_pswd = request.POST['password']
             if bcrypt.checkpw(passed_pswd.encode(), user.password.encode()):
                 request.session['is_logged_in'] = True
