@@ -3,7 +3,7 @@
 {% block head %}
 {{ block.super }}
 {% endblock head %}
-{% block title %}{{ block.super }} | Successful Login{% endblock title %}
+{% block title %}{{ block.super }}Successful Login{% endblock title %}
 {% block content %}
         <h1>Welcome  {{ request.session.first_name }}</h1>
         <a href="/logoff">logoff</a>
