@@ -6,5 +6,12 @@
 {% block title %}{{ block.super }} | Reviews{% endblock title %}
 
 {% block content %}
-<h1>Welcome, {{ request.session.first_name }}</h1>
+<header>
+    <h1>Welcome, {{ request.session.first_name }}</h1>
+    <a href="/books/add">Add Book and Review</a>
+    <a href="/logoff">logoff</a>
+</header>
+{{ block.super }}
+
+
 {% endblock content %}

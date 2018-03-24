@@ -1,12 +1,14 @@
 {% extends "log_reg_app/layout.html" %}
 
+{% block title %}{{ block.super }}Register{% endblock title %}
 {% block head %}
 {{ block.super }}
 {% endblock head %}
-{% block title %}{{ block.super }} | Register{% endblock title %}
+
 
 {% block content %}
-<a href="/login">LOGIN</a>
+{{ block.super }}
+<h1>Register</h1>
 <form action="/register" method="post">
     {% csrf_token %}
     <ul>
@@ -37,4 +39,21 @@
         <input type="submit" value="Submit">
     </ul>
 </form>
-{% endblock content %}
+<br><h1>Login</h1>
+<form action="/login" method="post">
+    {% csrf_token %}
+    <ul>
+        <li>
+            <label for="email">Email</label>
+            <input type="text" name="email" value="{{ old_form.email }}">
+        </li>
+        <li>
+            <label for="password">Password:</label>
+            <input type="password" name="password">
+        </li>
+        <li>
+            <input type="submit" value="Submit">
+        </li>
+    </ul>
+</form>
+{% endblock %}

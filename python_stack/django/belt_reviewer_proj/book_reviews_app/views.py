@@ -4,5 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 
 
-def index(request):
-    return render(request, 'book_reviews_app/index.html')
+def reviews_main(request):
+    return render(
+        request, 'book_reviews_app/reviews_main.html', 
+    )

@@ -13,6 +13,9 @@ from form_validation import FormValidation
 def register(request):
     if 'is_logged_in' not in request.session:
         request.session['is_logged_in'] = False
+    elif request.session["is_logged_in"] is True:
+        messages.error(request, "You are aready logged in")
+        return redirect("/success")
 
     if request.method == "POST":
         form = FormValidation(request.POST)
@@ -21,7 +24,7 @@ def register(request):
             for message in form.errors:
                 messages.error(request, message)
             return render(
-                request, "log_reg_app/registration.html",
+                request, "log_reg_app/login_reg.html",
                 {"old_form": request.POST}
             )
         else:
@@ -45,18 +48,22 @@ def register(request):
                 messages.error(request, "That user already exists")
 
     return render(
-        request, 'log_reg_app/registration.html', {"old_form": request.POST}
+        request, 'log_reg_app/login_reg.html', {"old_form": request.POST}
     )
 
 
 #  /login
 def login(request):
-    if request.method == "POST":
+    if 'is_logged_in' not in request.session:
+        request.session['is_logged_in'] = False
+    elif request.session["is_logged_in"] is True:
+        messages.error(request, "You are aready logged in")
+        return redirect("/success")
+    elif request.method == "POST":
         try:
             user = User.objects.get(email=request.POST["email"])
         except User.DoesNotExist:
             messages.error(request, "Email does not exist")
-            return redirect("/login")
         else:
             passed_pswd = request.POST['password']
             if bcrypt.checkpw(passed_pswd.encode(), user.password.encode()):
@@ -72,24 +79,32 @@ def login(request):
                 )
                 messages.success(request, "Successful Login")
                 return redirect("/success")
+            else:
+                messages.error(
+                    request, "Either Email or Password or both is not correct"
+                )
 
-        messages.error(request, "Either Email or Password is not correct")
-        return redirect("/login")
-
-    return render(request, "log_reg_app/login.html")
+    return render(
+            request, "log_reg_app/login_reg.html", {"old_form": request.POST}
+        )
 
 
 #  /success
 def success(request):
-    if request.session["is_logged_in"] is True:
-        return render(request, "log_reg_app/success.html")
+    if 'is_logged_in' not in request.session:
+        request.session['is_logged_in'] = False
+    elif request.session["is_logged_in"] is True:
+        return redirect("/books")
 
     messages.error(request, "You have not logged in yet")
     return redirect("/login")
 
 
 def logoff(request):
-    if request.session["is_logged_in"] is True:
+    if 'is_logged_in' not in request.session:
+        request.session['is_logged_in'] = False
+        messages.error(request, "You have not logged in yet")
+    elif request.session["is_logged_in"] is True:
         messages.success(request, "You successfully logged off")
         keys_vals_to_del = [
             "is_logged_in", "first_name", "last_name", "email",
