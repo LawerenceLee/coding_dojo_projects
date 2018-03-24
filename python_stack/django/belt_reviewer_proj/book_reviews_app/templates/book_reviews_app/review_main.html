@@ -1,0 +1,10 @@
+{% extends "book_reviews_app/layout.html" %}
+
+{% block head %}
+{{ block.super }}
+{% endblock head %}
+{% block title %}{{ block.super }} | Reviews{% endblock title %}
+
+{% block content %}
+<h1>Welcome, {{ request.session.first_name }}</h1>
+{% endblock content %}
