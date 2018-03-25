@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render, redirect
 from django.contrib import messages
 
-from models import Author, Book, Review
+from models import Author, Book, Review, User
 
 
 def reviews_main(request):
@@ -27,6 +27,18 @@ def book_detail(request, id):
         request, "book_reviews_app/book_detail.html",
         {"book": book}
     )
+
+
+def user_detail(request, id):
+    try:
+        user = User.objects.get(id=id)
+    except User.DoesNotExist:
+        messages.error(request, "That user does not exist")
+    else:
+        return render(
+            request, "book_reviews_app/user_detail.html",
+            {"user": user}
+        )
 
 # delete view for reviews
 # if review.user.id == request.session.user_id then delete
