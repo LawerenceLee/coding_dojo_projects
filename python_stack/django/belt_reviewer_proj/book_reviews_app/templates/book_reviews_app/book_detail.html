@@ -1,0 +1,44 @@
+{% extends "book_reviews_app/layout.html" %}
+
+{% block head %}
+{{ block.super }}
+{% endblock head %}
+{% block title %}{{ block.super }} | {% endblock title %}
+
+{% block content %}
+<a href="/books">Home</a>
+<a href="/logoff">Logoff</a>
+<div>
+    <h1>{{ book.title }}</h1>
+    <h3>Author/s: {{ book.author_str }}</h3>
+</div>
+<br><h2>Reviews</h2>
+<div id="reviews">
+    {% for review in book.reviews.all %}
+        <br><p>Rating: {{ review.rating }}</p>
+        <p><a href="/users/{{ review.user.id }}">{{ review.user.first_name }}</a> says: {{ review.content }}</p>
+        <p>Posted on: {{ review.created_at }}</p>
+        {% if review.user.id == request.session.user_id %}
+            <a href="/delete_review/{{ review.id }}">Delete this Review</a>
+        {% endif %}
+        <br>
+    {% endfor %}
+</div>
+<div>
+    <br><h3>Add a Review</h3>
+    <form action="/process_review" method="post">
+        <input type="hidden" name="book" value="{{ book }}">
+        <textarea name="content" id="review_content" cols="30" rows="10"></textarea><br>
+        <label for="rating">Rating</label>
+        <select name="rating" id="stars_select">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <span>stars</span><br>
+        <input type="submit" value="Submit Review">
+    </form>
+</div>
+{% endblock content %}
