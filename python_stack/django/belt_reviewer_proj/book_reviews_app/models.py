@@ -11,6 +11,9 @@ class Author(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     changed_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return "Author Name: {}".format(self.name)
+
 
 class Book(models.Model):
     title = models.CharField(max_length=255)
@@ -18,9 +21,40 @@ class Book(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     changed_at = models.DateTimeField(auto_now=True)
 
+    def __repr__(self):
+        author_str = ""
+        for author in self.authors.all():
+            author_str += author.name + " "
+        return "Title: {}, Authors: {}".format(self.title, author_str)
+
+    def __str__(self):
+        author_str = ""
+        for author in self.authors.all():
+            author_str += author.name + " "
+        return "Title: {}\nAuthors: {}".format(self.title, author_str)
+
+    def author_str(self):
+        author_str = ""
+        for author in self.authors.all():
+            author_str += author.name + " "
+        return author_str
+
 
 class Review(models.Model):
     content = models.TextField()
     rating = models.IntegerField()
     user = models.ForeignKey(User, related_name="reviews")
     book = models.ForeignKey(Book, related_name="reviews")
+    created_at = models.DateTimeField(auto_now_add=True)
+    changed_at = models.DateTimeField(auto_now=True)
+
+    def __repr__(self):
+        return "Book Title: {}, Rating: {}, User: {}, Content: {}".format(
+            self.book.title, self.rating, self.user.first_name, self.content
+        )
+
+    def __str__(self):
+        return "Book Title: {}\nRating: {}\nUser: {}\nContent: {}".format(
+            self.book.title, self.rating, self.user.first_name, self.content
+        )
+ 
