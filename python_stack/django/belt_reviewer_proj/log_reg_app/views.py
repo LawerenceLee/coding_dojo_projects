@@ -68,6 +68,7 @@ def login(request):
             passed_pswd = request.POST['password']
             if bcrypt.checkpw(passed_pswd.encode(), user.password.encode()):
                 request.session['is_logged_in'] = True
+                request.session['user_id'] = user.id
                 request.session["first_name"] = user.first_name
                 request.session['last_name'] = user.last_name
                 request.session['email'] = user.email
