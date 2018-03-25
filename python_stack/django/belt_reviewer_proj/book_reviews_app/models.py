@@ -12,7 +12,7 @@ class Author(models.Model):
     changed_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return "Author Name: {}".format(self.name)
+        return "ID: {}, Author Name: {}".format(self.id, self.name)
 
 
 class Book(models.Model):
@@ -31,7 +31,9 @@ class Book(models.Model):
         author_str = ""
         for author in self.authors.all():
             author_str += author.name + " "
-        return "Title: {}\nAuthors: {}".format(self.title, author_str)
+        return "ID: {}\nTitle: {}\nAuthors: {}".format(
+            self.id, self.title, author_str
+        )
 
     def author_str(self):
         author_str = ""
@@ -49,12 +51,15 @@ class Review(models.Model):
     changed_at = models.DateTimeField(auto_now=True)
 
     def __repr__(self):
-        return "Book Title: {}, Rating: {}, User: {}, Content: {}".format(
-            self.book.title, self.rating, self.user.first_name, self.content
+        return "ID: {}, Book Title: {}, Rating: {}, User: {}, Content: {}\
+        ".format(
+            self.id, self.book.title, self.rating,
+            self.user.first_name, self.content
         )
 
     def __str__(self):
-        return "Book Title: {}\nRating: {}\nUser: {}\nContent: {}".format(
-            self.book.title, self.rating, self.user.first_name, self.content
+        return "ID: {}\nBook Title: {}\nRating: {}\nUser: {}\nContent: {}\
+        ".format(
+            self.id, self.book.title, self.rating,
+            self.user.first_name, self.content
         )
- 

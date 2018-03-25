@@ -3,18 +3,18 @@
 {% block head %}
 {{ block.super }}
 {% endblock head %}
-{% block title %}{{ block.super }} | {% endblock title %}
+{% block title %}{{ block.super }} | {{ user.alias }}{% endblock title %}
 
 {% block content %}
 <header>
     <a href="/books/add">Add Book and Review</a>
     <a href="/logoff">logoff</a>
 </header>
-<h1>User Alias: {{ user.first_name }}</h1>
+<h1>User Alias: {{ user.alias }}</h1>
 <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
 <p>Email: {{ user.email }}</p>
 <p>Total Reviews: {{ user.reviews.count }}</p><br>
 {% for review in user.reviews.all %}
-<a href="/books/{{ review.book.id }}">{{ review.book.title }}</a>
+    <a href="/books/{{ review.book.id }}">{{ review.book.title }}</a>
 {% endfor %}
 {% endblock content %}

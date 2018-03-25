@@ -3,8 +3,35 @@
 {% block head %}
 {{ block.super }}
 {% endblock head %}
-{% block title %}{{ block.super }} | {% endblock title %}
+{% block title %}{{ block.super }} | Add A Reivew{% endblock title %}
 
 {% block content %}
-
+<a href="/books">Home</a>
+<a href="/logoff">Logoff</a>
+<h1>Add a New Book and A Review:</h1>
+<form action="/books/process_book_and_review" method="post">
+    {% csrf_token %}
+    <label for="title">Book Title:</label>
+    <input type="text" name="title"><br>
+    <label for="author">Choose from the list</label>
+    <select name="author" id="author">
+        <option value=""></option>
+        {% for author in authors %}
+            <option value="{{ author.name }}">{{ author.name }}</option>
+        {% endfor %}
+    </select><br>
+    <label for="new_author">Or add a new author:</label>
+    <input type="text" name="new_author"><br>
+    <label for="review">Review:</label><br>
+    <textarea name="review" id="review" cols="30" rows="10"></textarea><br>
+    <label for="rating">Rating:</label>
+    <select name="rating" id="rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select><br>
+    <input type="submit" value="Add a Book and Review">
+</form>
 {% endblock content %}

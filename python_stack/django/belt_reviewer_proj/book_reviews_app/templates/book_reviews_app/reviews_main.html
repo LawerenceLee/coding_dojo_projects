@@ -12,13 +12,13 @@
     <a href="/logoff">logoff</a>
 </header>
 <main>
-    <br><h2>Recent Book Reviews</h2>
+    <br><h2>Recent Book Reviews</h2><br>
     <div class="recent-reviews">
         {% for review in reviews %}
             <a href="/books/{{ review.book.id }}">{{ review.book.title }}</a>
             <p>Rating: {{ review.rating }}</p>
-            <p><span><a href="/users/{{ review.user.id }}">{{ review.user.first_name }}</a></span> says: {{ review.content }}</p>
-            <p>Posted on: {{ review.created_at }}</p>
+            <p><span><a href="/users/{{ review.user.id }}">{{ review.user.alias }}</a></span> says: {{ review.content }}</p>
+            <p>Posted on: {{ review.created_at }}</p><br>
         {% endfor %}
     </div>
     <br><h2>Other Books with Reviews</h2>
